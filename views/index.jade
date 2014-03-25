@@ -1,7 +1,11 @@
 extends layout
 
 block body
-  div.body(ng-controller='anotherController' keypress)
-    partial-test
-    div(ng-repeat="item in foo")
-      {{item}}
+  div.body(ng-controller='portfolioController')
+    div.bin
+        div.work(ng-repeat="details in works")
+            blob(details="details")
+        div.experiment(ng-repeat="details in experiments")
+            blob(details="details")
+        div.history(ng-repeat="details in histories")
+            blob(details="details")

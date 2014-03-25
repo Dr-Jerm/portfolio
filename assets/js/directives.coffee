@@ -1,14 +1,11 @@
 root = exports ? this
 
-root.app.directive "keypress", ($document) ->
-  (scope, element, attrs) ->
-    $document.bind "keypress", (e) ->
-      charCode = e.charCode
-      console.log charCode
-
-root.app.directive 'partialTest', () ->
+root.app.directive 'blob', () ->
   restrict: 'E'
-  templateUrl: 'partials/partial1'
+  scope: {
+  	details: '='
+  }
+  templateUrl: 'partials/blob'
   link: (scope, element, attrs) ->
-    console.log('partial loaded!')
+    console.log('blob ' +scope.title+' loaded!')
   

@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Sun Dec 22 2013 03:23:43 GMT-0200 (BRST)
+// Generated on Tue Mar 25 2014 05:56:03 GMT+0000 (UTC)
 
 module.exports = function(config) {
   config.set({
@@ -14,15 +14,17 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'assets/js/vendor/*.js',
-        'test/vendor/angular-mocks.js',
-        'assets/js/*.coffee',
-        'test/*.coffee'
+      'assets/js/vendor/*.js',
+      'test/vendor/angular-mocks.js',
+      'assets/js/*.coffee',
+      'test/*.coffee'
     ],
 
 
     // list of files to exclude
-    exclude: [],
+    exclude: [
+      
+    ],
 
 
     // test results reporter to use
@@ -64,6 +66,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   });
 };
