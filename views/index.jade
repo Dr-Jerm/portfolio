@@ -1,0 +1,7 @@
+extends layout
+
+block body
+  div.body(ng-controller='anotherController' keypress)
+    partial-test
+    div(ng-repeat="item in foo")
+      {{item}}
