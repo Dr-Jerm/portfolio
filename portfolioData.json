@@ -2,8 +2,18 @@
     "works": [
         {
             "title": "PlayStation Now",
+            "date": "July 2013 - Current",
             "imagePath": "/images/psnowlogo.jpg",
-            "summary": "Part of a small angular.js team tasked to build out the metrics and tools used to monitor the cloud gaming network PlayStation Now. Responsible for building out the software and database used to add and track server hardware throughout PlayStation Now's global datacenters."
+            "summary": "Part of a small angular.js team tasked to build out the metrics and tools used to monitor the cloud gaming network PlayStation Now. Responsible for building out the software and database used to add and track server hardware throughout PlayStation Now's global datacenters.",
+            "link": {
+                "text": "Gaikai",
+                "href": "https://gaikai.com"
+            }
+        },
+        {
+            "title": "Sandia National Labs",
+            "imagePath": "/images/snl.jpg",
+            "summary": "Part of a video game research team. The primary objective was to detect agression based on forum postings with the goal of being able to mine public forums and be able to identify posters who would actually 'follow through' with their statements."
         }
     ],
     "experiments" : [

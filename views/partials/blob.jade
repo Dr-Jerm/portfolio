@@ -1,6 +1,9 @@
 div.blob
+    div.thumbnail(style='background-image:url({{details.imagePath}})')
     div.title {{details.title}}
-    div.thumbnail
-        img(src="{{details.imagePath}}")
-        div.caption {{details.imageCaption}}
+    div.date(ng-if="details.date") ({{details.date}})
+        //- img(src="{{details.imagePath}}")
+        //- div.caption {{details.imageCaption}}
     div.summary {{details.summary}}
+    div.link(ng-if="details.link")
+        a(href="{{details.link.href}}") {{details.link.text}}

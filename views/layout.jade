@@ -11,7 +11,9 @@ html(ng-app="myApp")
         != js('helpers')
         != js('directives')
 
-    body
+    body.fill
+        include background
+
         include header
         
         block body

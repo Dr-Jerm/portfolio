@@ -4,8 +4,15 @@ vendor(prop, args)
   -o-{prop} args
   {prop} args
 
-body
-  // background-color #aaaaaa
+background-linear-gradient(startPoint, startColor, startInterval, endColor, endInterval)
+  background-color startColor
+  background-image -webkit-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+  background-image -moz-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+  background-image -ms-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+  background-image -o-linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+  background-image linear-gradient(startPoint, startColor startInterval, endColor endInterval)
+
+.fill
   position absolute
   top 0
   bottom 0
@@ -13,39 +20,66 @@ body
   right 0
   margin 0
   padding 0
+
+body
+  background-color #FFF
+
+  .background
+    
+
+    .canvas
+      display: none
+      z-index -2
+
+    .mesh
+      z-index -1
+      // background-color #FFF
+      background-image url(/images/bg.png)
+      background-repeat repeat
+      background-position top left
   
   .header
     width 100%
   .body
-    width 100%
-    height 100%
+
+    .list
+      list-style none
+
+      li
+        float left
+        display inline
+        position relative
 
   .blob
-    // position relative
+    width 365px
+    height 160px
+    padding: 5px
+    background #ffffff
+    background-linear-gradient(top, #ffffff, 0%, #ebebeb, 100%)
+    vendor('box-shadow', 4px 5px 3px 0px #dddddd)
 
     .title
-      position absolute
       font-size 150% 
 
     .thumbnail
       position absolute
+      width 365px
+      height 160px
+      opacity 1
+      vendor('transition', opacity .25s ease-out)
 
-      img
-        opacity 1
-        vendor('transition', opacity .25s ease-out)
-
-        &:hover
-          opacity 0
+      &:hover
+        opacity 0
 
       .caption
         position absolute
         display inline-block
     .summary
-      position absolute
+      padding 5px
       font-size 75%
 
   .footer
-    position absolute
+    position fixed
     bottom 0px
     color #dddddd
   
