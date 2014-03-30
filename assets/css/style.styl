@@ -1,3 +1,7 @@
+backgroundColor = #ffffff
+textColor = #000000
+secondaryBackgroundColor = #ebebeb
+
 vendor(prop, args)
   -webkit-{prop} args
   -moz-{prop} args
@@ -22,13 +26,13 @@ background-linear-gradient(startPoint, startColor, startInterval, endColor, endI
   padding 0
 
 body
-  background-color #FFF
+  color textColor
+  background-color backgroundColor
 
   .background
     
 
     .canvas
-      display: none
       z-index -2
 
     .mesh
@@ -41,21 +45,22 @@ body
   .header
     width 100%
   .body
-
+    
     .list
-      list-style none
+      list-style-type none
+      margin 0
+      padding 0
 
       li
-        float left
-        display inline
-        position relative
+        display inline-flex
+        margin 5px
 
   .blob
     width 365px
     height 160px
     padding: 5px
     background #ffffff
-    background-linear-gradient(top, #ffffff, 0%, #ebebeb, 100%)
+    background-linear-gradient(top, backgroundColor, 0%, secondaryBackgroundColor, 100%)
     vendor('box-shadow', 4px 5px 3px 0px #dddddd)
 
     .title

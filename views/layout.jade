@@ -6,6 +6,7 @@ html(ng-app="myApp")
         title Jeremy Bernstein
         != css('style')
         != js('vendor/angular.min')
+        != js('vendor/three.min')
         //- script(src="/js/vendor/angular.min.js")
         != js('app')
         != js('helpers')
@@ -19,3 +20,5 @@ html(ng-app="myApp")
         block body
 
         include footer
+
+        != js('background')

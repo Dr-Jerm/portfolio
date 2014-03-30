@@ -1,21 +1,21 @@
 extends layout
 
 block body
-  div.body(ng-controller='portfolioController')
-    div.bin
-        div
-            div.section-title
-                | Work
-            ul.list.work(ng-repeat="details in works")
-                li(blob details="details")
-        div
-            div.section-title
-                | Fun
-            ul.list.experiment(ng-repeat="details in experiments")
-                li(blob details="details")
-        div
-            div.section-title
-                | Projects
-            ul.list.history(ng-repeat="details in histories")
-                li(blob details="details")
+  //- div.body(ng-controller='portfolioController')
+  //-   div.bin
+  //-       div
+  //-           div.section-title
+  //-               | Work
+  //-           ul.list.work
+  //-               li(blob ng-repeat="details in works" details="details")
+  //-       div
+  //-           div.section-title
+  //-               | Fun
+  //-           ul.list.experiment(ng-repeat="details in experiments")
+  //-               li(blob details="details")
+  //-       div
+  //-           div.section-title
+  //-               | Projects
+  //-           ul.list.history(ng-repeat="details in histories")
+  //-               li(blob details="details")
                 
