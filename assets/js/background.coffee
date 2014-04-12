@@ -2,11 +2,43 @@ root = exports ? this
 
 # use randomSeed as frame offset for tail pos
 
+class Vector3
+    
+    constructor: (x, y, z) ->
+        @x = x
+        @y = y
+        @z = z
+        
+        @multiply = (scale) ->
+            @x = @x*scale
+            @y = @y*scale
+            @z = @z*scale
+            @
+            
+        @add = (incrementorVector) ->
+            @x = @x+incrementorVector.x
+            @y = @y+incrementorVector.y
+            @z = @z+incrementorVector.z
+            @
+            
 class Snake 
     tailCount = 3
     tailReduction = 0.5
     tailOffset = 200
     maxVelocity = 3
+    
+    mass = 100
+    
+    speedScale = 0.01
+    
+    randomForceScale = 5
+
+    positionBuffer = []
+
+    position = new Vector3(0,0,0)
+    
+    velocity = new Vector3(0,0,0)
+
 
     tailSections = []
 
@@ -15,25 +47,40 @@ class Snake
 
         scale = 1
 
-        @head = new SnakeSection(scale)
-        root.scene.add(@head.mesh)
-
         for i in [0..tailCount]
+            section = new SnakeSection(scale)
+            tailSections.push(section)
+            root.scene.add(section.mesh)
             scale = scale * tailReduction
-            tailSections.push(new SnakeSection(scale))
-            root.scene.add(tailSections.mesh)
 
     update: (delta, frame) =>
         scale = 1
-
-        @head.update(delta, frame, 0)
+        
+        updatePhysics(delta)
 
         for section,i in tailSections
-            section.update(delta, frame, (i+1)*tailOffset)
+            section.update(position)
+            
+
+    updatePhysics = (delta) ->
+        randomForce = new Vector3(((Math.random()-.5)*2)*randomForceScale, ((Math.random()-.5)*2)*randomForceScale, ((Math.random()-.5)*2)*randomForceScale)
+        
+        forces = [randomForce]
+        
+        netForce = new Vector3(0,0,0)
+
+        for force in forces
+            netForce.add(force)
+            
+        acceleration = netForce.multiply(1/mass)
+        
+        newVelocity = acceleration.multiply(delta).add(velocity) ## a*t + v(i) = v(f)
+
+        velocity = newVelocity
+        
+        position.add(velocity);
 
 class SnakeSection
-
-    speedScale = 0.01
 
     vertexRandomScale = 20
     baseGeoSize = 70
@@ -43,27 +90,9 @@ class SnakeSection
 
         origVerts = []
 
-        position = {
-            x: 0
-            y: 0
-            z: 0
-        }
-        
-        velocity = {
-            x: 0
-            y: 0
-            z: 0
-        }
-
-        @update = (delta, frame, offset) ->
-            # root.scene.remove(@mesh);
-            # @mesh = createMesh(scale)
-
-            # root.scene.add(@mesh)
-            randomizeVerticies(@mesh.geometry)            
-
-            updateVelocity(frame, offset)
-            updatePosition()
+        @update = (position) ->
+            randomizeVerticies(@mesh.geometry)
+            @mesh.position = position
 
         createMesh = (scale) ->
 
@@ -88,23 +117,6 @@ class SnakeSection
             randomizeVerticies(geometry)
             geometry
 
-        updateVelocity = (frame, offset) ->
-            randomX = (Math.random(frame+offset+1)*2 - 1) * speedScale;
-            randomY = (Math.random(frame+offset+2)*2 - 1) * speedScale;
-            randomZ = (Math.random(frame+offset+3)*2 - 1) * speedScale;
-            # borderCorrection
-
-            velocity.x = velocity.x + randomX
-            velocity.y = velocity.y + randomY
-            velocity.z = velocity.z + randomZ
-
-
-        updatePosition = () =>
-            @mesh.position.x = @mesh.position.x + velocity.x
-            @mesh.position.y = @mesh.position.y + velocity.y
-            @mesh.position.z = @mesh.position.z + velocity.z
-
-
         randomizeVerticies = (geo) ->
             geo.vertices = resetVerts geo.vertices, origVerts
             for vertex,i in geo.vertices
@@ -123,9 +135,10 @@ class SnakeSection
                 from[i].z = to[i].z
             from
 
+
         @mesh = createMesh(scale)
 
-
+        
 
 (->
     container = undefined
