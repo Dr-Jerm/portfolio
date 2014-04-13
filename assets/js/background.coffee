@@ -1,6 +1,6 @@
 root = exports ? this
 
-# use randomSeed as frame offset for tail pos
+## use randomSeed as frame offset for tail pos
 
 class Vector3
     
@@ -20,20 +20,32 @@ class Vector3
             @y = @y+incrementorVector.y
             @z = @z+incrementorVector.z
             @
+
+        @length = ->
+            Math.sqrt(@.x*@.x + @.y*@.y + @.z*@.z)
+
+        @normalize = ->
+            length = @length()
+            @x = @x / length
+            @y = @y / length
+            @z = @z / length
+            @
             
 class Snake 
-    tailCount = 3
-    tailReduction = 0.5
-    tailOffset = 200
+    tailCount = 6
+    tailReduction = 0.8
+    tailOffset = 20
     maxVelocity = 3
     
-    mass = 100
+    mass = 10
     
     speedScale = 0.01
     
-    randomForceScale = 5
+    randomForceScale = 100
+    boundaryForceScale = 50
 
     positionBuffer = []
+    rotationBuffer = []
 
     position = new Vector3(0,0,0)
     
@@ -48,9 +60,10 @@ class Snake
         scale = 1
 
         for i in [0..tailCount]
-            section = new SnakeSection(scale)
+            section = new SnakeSection(scale, i*tailOffset)
+
             tailSections.push(section)
-            root.scene.add(section.mesh)
+            root.scene.add(section.group)
             scale = scale * tailReduction
 
     update: (delta, frame) =>
@@ -58,14 +71,21 @@ class Snake
         
         updatePhysics(delta)
 
+        updateBuffers()
+
         for section,i in tailSections
-            section.update(position)
+            sectionPosition = positionBuffer[i*tailOffset]
+            sectionRotation = rotationBuffer[i*tailOffset]
+            if sectionPosition
+                section.update(sectionPosition, sectionRotation, delta, frame)
             
 
     updatePhysics = (delta) ->
         randomForce = new Vector3(((Math.random()-.5)*2)*randomForceScale, ((Math.random()-.5)*2)*randomForceScale, ((Math.random()-.5)*2)*randomForceScale)
         
-        forces = [randomForce]
+        boundaryForce = getBoundaryForce()
+
+        forces = [randomForce, boundaryForce]
         
         netForce = new Vector3(0,0,0)
 
@@ -76,23 +96,74 @@ class Snake
         
         newVelocity = acceleration.multiply(delta).add(velocity) ## a*t + v(i) = v(f)
 
+        newVelocity.x = Math.min(newVelocity.x, maxVelocity)
+        newVelocity.y = Math.min(newVelocity.y, maxVelocity)
+        newVelocity.z = Math.min(newVelocity.z, maxVelocity)
+
         velocity = newVelocity
         
         position.add(velocity);
 
+    updateBuffers = ->
+        positionBuffer.unshift(angular.copy(position))
+
+        rotation = angular.copy(velocity).normalize()
+
+        rotationBuffer.unshift(rotation)
+
+        if positionBuffer.length > (tailOffset * tailCount+1) 
+            positionBuffer.pop()
+            rotationBuffer.pop()
+
+
+
+    getBoundaryForce = ->
+        distanceFromOrigin = position.length()
+
+        boundaryForce = new Vector3(0,0,0)
+
+        if distanceFromOrigin > 400
+            boundaryForce = angular.copy(position).normalize().multiply(-1*boundaryForceScale)
+
+        boundaryForce
+
+
+
 class SnakeSection
 
-    vertexRandomScale = 20
+    undulateSpeed = 1/10
+    undulateScale = 1/10
+
+    birthRate = 0.005
+
+    vertexRandomScale = 4 ##8
     baseGeoSize = 70
 
-    constructor: (inScale) ->
+    constructor: (inScale, offset) ->
+        birthScale = 0
+
         scale = inScale;
+
+        offset =  offset ##Math.floor(Math.random()*100)
 
         origVerts = []
 
-        @update = (position) ->
+        @update = (position, rotation, delta, frame) ->
+            undulateAmount = 1 + ((Math.sin((frame+offset)*undulateSpeed))*undulateScale)
+
+            if birthScale < scale
+                birthScale += birthRate
+                # undulateAmount = undulateAmount * birthScale
+
+            @mesh.scale = new Vector3(undulateAmount,undulateAmount,undulateAmount*1.5)
+
             randomizeVerticies(@mesh.geometry)
-            @mesh.position = position
+            @group.position = position
+
+            @mesh.lookAt(rotation)
+            # @mesh.rotation.x = rotation.x + Math.PI/2
+            # @mesh.rotation.y = rotation.y  + Math.PI/2
+            # @mesh.rotation.z = rotation.z + Math.PI/2
 
         createMesh = (scale) ->
 
@@ -105,14 +176,15 @@ class SnakeSection
             material = new THREE.MeshLambertMaterial( { color: 0xdddddd, shading: THREE.FlatShading} )
 
             newMesh = new THREE.Mesh( geometry, material )
-            newMesh.rotation.x = Math.random()
-            newMesh.rotation.y = Math.random()
-            newMesh.rotation.z = Math.random()
+
+            newMesh.scale = new Vector3(0,0,0)
+
+            # newMesh.rotation.x = Math.PI/2
 
             newMesh
 
         createGeo = (scale) ->
-            geometry = new THREE.SphereGeometry( baseGeoSize*scale, 16*scale, 8*scale );
+            geometry = new THREE.SphereGeometry( baseGeoSize*scale, 32*scale, 16*scale );
             origVerts = angular.copy geometry.vertices
             randomizeVerticies(geometry)
             geometry
@@ -137,6 +209,10 @@ class SnakeSection
 
 
         @mesh = createMesh(scale)
+        @group = new THREE.Object3D()
+        # @group.rotation.x = 90*Math.PI/180
+        # @group.rotation.z = 90*Math.PI/180
+        @group.add(@mesh)
 
         
 
@@ -172,10 +248,10 @@ class SnakeSection
 
         root.addEventListener( 'resize', onWindowResize, false )
 
-        camera.position.z = 400
+        camera.position.z = 600
 
         root.scene = new THREE.Scene()
-        root.scene.fog = new THREE.FogExp2( 0xaaccff, 0.0007 )
+        root.scene.fog = new THREE.FogExp2( 0xffffff, 0.002  )
 
         root.scene.add( new THREE.AmbientLight( 0x666666 ) );
 
@@ -224,7 +300,8 @@ class SnakeSection
 
         # randomizeVerticies(mesh.geometry)
 
-        snake.update(delta, frame)
+        if delta < 1.0
+            snake.update(delta, frame)
 
         # mesh.geometry.verticesNeedUpdate = true
         renderer.render( root.scene, camera )
