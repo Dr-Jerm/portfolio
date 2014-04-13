@@ -151,9 +151,9 @@ class SnakeSection
         @update = (position, rotation, delta, frame) ->
             undulateAmount = 1 + ((Math.sin((frame+offset)*undulateSpeed))*undulateScale)
 
-            if birthScale < scale
+            if birthScale < 1
                 birthScale += birthRate
-                # undulateAmount = undulateAmount * birthScale
+                undulateAmount = undulateAmount * birthScale
 
             @mesh.scale = new Vector3(undulateAmount,undulateAmount,undulateAmount*1.5)
 
@@ -161,10 +161,7 @@ class SnakeSection
             @group.position = position
 
             @mesh.lookAt(rotation)
-            # @mesh.rotation.x = rotation.x + Math.PI/2
-            # @mesh.rotation.y = rotation.y  + Math.PI/2
-            # @mesh.rotation.z = rotation.z + Math.PI/2
-
+            
         createMesh = (scale) ->
 
             geometry = createGeo(scale);
