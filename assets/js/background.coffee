@@ -136,7 +136,7 @@ class SnakeSection
 
     birthRate = 0.005
 
-    vertexRandomScale = 4 ##8
+    vertexRandomScale = 20 ##8
     baseGeoSize = 70
 
     constructor: (inScale, offset) ->
@@ -155,12 +155,12 @@ class SnakeSection
                 birthScale += birthRate
                 undulateAmount = undulateAmount * birthScale
 
-            @mesh.scale = new Vector3(undulateAmount,undulateAmount,undulateAmount*1.5)
+            @mesh.scale = new Vector3(undulateAmount,undulateAmount,undulateAmount)
 
             randomizeVerticies(@mesh.geometry)
             @group.position = position
 
-            @mesh.lookAt(rotation)
+            #@mesh.lookAt(rotation)
             
         createMesh = (scale) ->
 
@@ -245,7 +245,7 @@ class SnakeSection
 
         root.addEventListener( 'resize', onWindowResize, false )
 
-        camera.position.z = 600
+        camera.position.z = 800
 
         root.scene = new THREE.Scene()
         root.scene.fog = new THREE.FogExp2( 0xffffff, 0.002  )
