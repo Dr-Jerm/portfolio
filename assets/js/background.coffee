@@ -4,7 +4,7 @@ root = exports ? this
 
 class CubeField
 
-    cubeCount = 15
+    cubeCount = 25
     cubeSize = 20
     
     fieldRadius = 400
@@ -15,24 +15,30 @@ class CubeField
         
         for i in [0..cubeCount]
             
-            randomPosition = new CANNON.Vec3( ((Math.random()-.5)*2)*fieldRadius, ((Math.random()-.5)*2)*fieldRadius, ((Math.random()-.5)*2)*fieldRadius);
+            randomPosition = new CANNON.Vec3( ((Math.random()-.5)*2)*fieldRadius, ((Math.random()-.5)*2)*fieldRadius, ((Math.random()-.5)*2)*fieldRadius)
             
-            cubes.push(new Cube(randomPosition))
+            cubes.push(new Cube(randomPosition, fieldRadius))
         
         @update =  (timeStep) ->
             for cube in cubes
-                cube.update(timeStep);
+                cube.update(timeStep)
         
 
 class Cube
 
     cubeSize = 20
-    spinSpeed = 10
+    spinSpeed = .5
     
-    constructor: (position) ->
+    randomForceScale = 10000
+    boundaryForceScale = 5000
+    
+    worldRadius = undefined
+    
+    constructor: (position, boundsRadius) ->
+        worldRadius = boundsRadius
     
         geometry = new THREE.CubeGeometry( cubeSize, cubeSize, cubeSize )
-        material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } )
+        material = new THREE.MeshLambertMaterial( { color: 0xdddddd, shading: THREE.FlatShading} )
         
         @mesh = new THREE.Mesh( geometry, material )
         
@@ -41,21 +47,51 @@ class Cube
         root.scene.add( @mesh )
         
         shape = new CANNON.Box(new CANNON.Vec3(1,1,1))
-        mass = 1
+        mass = 500
         @body = new CANNON.RigidBody(mass,shape)
         @body.angularVelocity.set(((Math.random()-.5)*2)*spinSpeed,((Math.random()-.5)*2)*spinSpeed,((Math.random()-.5)*2)*spinSpeed)
-        @body.linearDamping = @body.angularDamping = 0.5
+        @body.angularDamping = 0
+        #@body.linearDamping = 0
         
         @body.position = position
         
         root.world.add(@body)
         
+        updateForces = -> 
+            randomForce = new CANNON.Vec3(((Math.random()-.5)*2)*randomForceScale, ((Math.random()-.5)*2)*randomForceScale, ((Math.random()-.5)*2)*randomForceScale)
+        
+            boundaryForce = getBoundaryForce()
+    
+            forces = [randomForce, boundaryForce]
+            
+            netForce = new CANNON.Vec3(0,0,0)
+    
+            for force in forces
+                netForce = netForce.vadd(force)
+            
+            netForce
+            
+        getBoundaryForce = =>
+            boundaryForce = new CANNON.Vec3(0,0,0)
+            
+            distanceFromOrigin = @body.position.distanceTo(boundaryForce)
+    
+    
+            if distanceFromOrigin > 400
+                pos = position.copy()
+                pos.normalize()
+                boundaryForce = pos.mult(-1*boundaryForceScale)
+    
+            boundaryForce
+        
         @update = (timeStep) ->
             root.world.step(timeStep)
             
-            #worldPoint = new CANNON.Vec3(0,0,0)
+            force = updateForces()
+            
+            worldPoint = new CANNON.Vec3(0,0,0)
             #force = new CANNON.Vec3(500,0,0)
-            #@body.applyForce(force, worldPoint)
+            @body.applyForce(force, @body.position)
             
             ## Copy coordinates from Cannon.js to Three.js
             @body.position.copy(@mesh.position)
