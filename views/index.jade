@@ -3,19 +3,22 @@ extends layout
 block body
   div.body(ng-controller='portfolioController')
     div.bin
-        div
+        div.section
             div.section-title
-                | Work
+                h2.text Work
+                span.icon(style='background-image:url("images/cloud.svg")')
             ul.list.work
                 li(blob ng-repeat="details in works" details="details")
-        div
+        div.section
             div.section-title
-                | Fun
-            ul.list.experiment(ng-repeat="details in experiments")
-                li(blob details="details")
-        div
+                h2.text Fun
+                span.icon(style='background-image:url("images/gamepad.svg")')
+            ul.list.experiment
+                li(blob ng-repeat="details in experiments" details="details")
+        div.section
             div.section-title
-                | Projects
-            ul.list.history(ng-repeat="details in histories")
-                li(blob details="details")
+                h2.text Projects
+                span.icon(style='background-image:url("images/wrench.svg")')
+            ul.list.history
+                li(blob ng-repeat="details in histories" details="details")
                 

@@ -1,6 +1,11 @@
-backgroundColor = #ffffff
+backgroundColor = #edf7f2
 textColor = #000000
 secondaryBackgroundColor = #ebebeb
+headerColor = #96ca2d
+subHeaderColor = #b5e655
+accentColor = #4bb5c1
+subAccentColor = #7fc6bc
+
 
 vendor(prop, args)
   -webkit-{prop} args
@@ -45,33 +50,78 @@ body
   font-family 'droid_sansregular'
 
   .background
-    
+    position fixed
+    top 0em
+    left 0em
+    right 0em
+    bottom 0em
+    z-index: -1
 
     .canvas
-      z-index -2
+      z-index -3
 
     .mesh
-      z-index -1
-      // background-color #FFF
+      z-index -2
       background-image url(/images/bg.png)
       background-repeat repeat
-      background-position top left
+      background-position top lf
   
   .header
-    width 100%
-  .body
-  
-    text-align center
-    max-width 960px
+    background-color headerColor
+    text accentColor
+    position fixed
+    padding-right 1em
+    padding-left 1em
+    top 0em
+    left -1em
+    right -1em
+    height 100px
+    z-index 1
+    vendor('box-shadow', 0px 5px 0px 0px subAccentColor)
     
-    .list
-      list-style-type none
-      margin 0
-      padding 0
-
-      li
-        display inline-flex
-        margin 5px
+  .body
+    position relative
+    top 120px
+    
+    .section
+    
+      .section-title
+        text-align left
+        width 200px
+        height 40px
+        padding-top 25px
+        padding-bottom 25px
+        background-color accentColor
+        position relative
+        left -1em
+        padding-left 1em
+        vendor('box-shadow', 4px 5px 3px 0px #dddddd)
+        
+        .text
+          position absolute
+          top 0.8em
+          left 1em
+        
+        .icon
+          display inline-block
+          width 4em
+          height 4em
+          background-size 4em 4em
+          position absolute
+          top 1em
+          right 2em
+          fill subHeaderColor
+      
+      .list
+        list-style-type none
+        margin 0
+        margin-top 40px
+        padding 0
+        text-align center
+  
+        li
+          display inline-flex
+          margin 5px
 
   .blob
     width 365px

@@ -27,10 +27,10 @@ class CubeField
 class Cube
 
     cubeSize = 20
-    spinSpeed = .5
+    spinSpeed = .2
     
-    randomForceScale = 10000
-    boundaryForceScale = 5000
+    randomForceScale = 100
+    boundaryForceScale = 50
     
     worldRadius = undefined
     
@@ -47,7 +47,7 @@ class Cube
         root.scene.add( @mesh )
         
         shape = new CANNON.Box(new CANNON.Vec3(1,1,1))
-        mass = 500
+        mass = 5
         @body = new CANNON.RigidBody(mass,shape)
         @body.angularVelocity.set(((Math.random()-.5)*2)*spinSpeed,((Math.random()-.5)*2)*spinSpeed,((Math.random()-.5)*2)*spinSpeed)
         @body.angularDamping = 0
@@ -136,11 +136,11 @@ class Cube
         camera.position.z = 800
 
         root.scene = new THREE.Scene()
-        root.scene.fog = new THREE.FogExp2( 0xffffff, 0.002  )
+        root.scene.fog = new THREE.FogExp2( 0xedf7f2, 0.002  )
 
         root.scene.add( new THREE.AmbientLight( 0x666666 ) )
 
-        directionalLight = new THREE.DirectionalLight( 0xffffff, 1 )
+        directionalLight = new THREE.DirectionalLight( 0xedf7f2, 1 )
 
         directionalLight.position.x = -0.1
         directionalLight.position.y = 0.5
