@@ -1,21 +1,25 @@
 root = exports ? this
 
-## use randomSeed as frame offset for tail pos
+cubeCount = 15
+cubeSize = 40
+fieldRadius = 600
 
 class CubeField
-
-    cubeCount = 25
-    cubeSize = 20
     
-    fieldRadius = 400
     
     cubes = []
     
     constructor: () ->
         
         for i in [0..cubeCount]
+            t = Math.random()*Math.PI
+            s = Math.random()*Math.PI*2
+            x = (fieldRadius-50) * Math.sin(t) * Math.cos(s) 
+            y = (fieldRadius-50) * Math.sin(t) * Math.sin(s)
+            z = (fieldRadius-50) * Math.cos(t)
             
-            randomPosition = new CANNON.Vec3( ((Math.random()-.5)*2)*fieldRadius, ((Math.random()-.5)*2)*fieldRadius, ((Math.random()-.5)*2)*fieldRadius)
+            randomPosition = new CANNON.Vec3(x,y,z)
+            #randomPosition = new CANNON.Vec3( ((Math.random()-.5)*2)*fieldRadius, ((Math.random()-.5)*2)*fieldRadius, ((Math.random()-.5)*2)*fieldRadius)
             
             cubes.push(new Cube(randomPosition, fieldRadius))
         
@@ -25,9 +29,7 @@ class CubeField
         
 
 class Cube
-
-    cubeSize = 20
-    spinSpeed = .2
+    spinSpeed = .05
     
     randomForceScale = 100
     boundaryForceScale = 50
@@ -46,8 +48,8 @@ class Cube
         
         root.scene.add( @mesh )
         
-        shape = new CANNON.Box(new CANNON.Vec3(1,1,1))
-        mass = 5
+        shape = new CANNON.Box(new CANNON.Vec3(cubeSize/2,cubeSize/2,cubeSize/2))
+        mass = 50
         @body = new CANNON.RigidBody(mass,shape)
         @body.angularVelocity.set(((Math.random()-.5)*2)*spinSpeed,((Math.random()-.5)*2)*spinSpeed,((Math.random()-.5)*2)*spinSpeed)
         @body.angularDamping = 0
@@ -77,7 +79,7 @@ class Cube
             distanceFromOrigin = @body.position.distanceTo(boundaryForce)
     
     
-            if distanceFromOrigin > 400
+            if distanceFromOrigin > fieldRadius
                 pos = position.copy()
                 pos.normalize()
                 boundaryForce = pos.mult(-1*boundaryForceScale)
@@ -120,7 +122,7 @@ class Cube
     stats = undefined
 
     init = ->
-        renderer = new THREE.WebGLRenderer()
+        renderer = new THREE.WebGLRenderer({ antialias: true })
         renderer.setClearColor( 0xffffff, 1 )
         renderer.setSize( root.innerWidth, root.innerHeight )
 
@@ -157,7 +159,7 @@ class Cube
         stats = new Stats()
         stats.domElement.style.position = 'absolute'
         stats.domElement.style.right = '0px'
-        stats.domElement.style.top = '0px'
+        stats.domElement.style.top = '200px'
         container.appendChild( stats.domElement )
 
      onWindowResize = -> 
@@ -186,7 +188,7 @@ class Cube
         root.world = new CANNON.World()
         root.world.gravity.set(0,0,0)
         root.world.broadphase = new CANNON.NaiveBroadphase()
-        root.world.solver.iterations = 10
+        root.world.solver.iterations = 3
           
 
     worldWidth = 128
