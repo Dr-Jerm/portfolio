@@ -11,5 +11,11 @@ root = exports ? this
         ), (error) ->
             console.error error
 
+    root.addEventListener 'touchmove', (event) ->
+        if event.touches.length == 2
+            event.stopPropagation()
+            event.preventDefault()
+
+
     console.log "Up and Running!"
 )()

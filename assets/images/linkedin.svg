@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<!-- The icon can be used freely in both personal and commercial projects with no attribution required, but always appreciated. 
+You may NOT sub-license, resell, rent, redistribute or otherwise transfer the icon without express written permission from iconmonstr.com -->
+
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+
+<path id="linkedin-square-icon" d="M50.473,50v412h412V50H50.473z M181.522,392.99h-56.536V210.336h56.536V392.99z M152.984,186.417
+
+	c-18.464,0-33.432-15.09-33.432-33.704c0-18.614,14.968-33.704,33.432-33.704c18.463,0,33.432,15.089,33.432,33.704
+
+	C186.416,171.328,171.447,186.417,152.984,186.417z M393.394,392.99h-56.262c0,0,0-69.582,0-95.881
+
+	c0-26.296-9.99-40.974-30.782-40.974c-22.629,0-34.452,15.289-34.452,40.974c0,28.133,0,95.881,0,95.881h-54.225V210.336h54.225
+
+	v24.599c0,0,16.309-30.171,55.04-30.171c38.733,0,66.456,23.648,66.456,72.572C393.394,326.262,393.394,392.99,393.394,392.99z"/>
+
+</svg>
+
