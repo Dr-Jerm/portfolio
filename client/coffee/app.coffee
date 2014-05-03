@@ -2,8 +2,9 @@
 root = exports ? this
 
 (->
-    root.app = angular.module("myApp", [])
+    root.app = angular.module("myApp", ["ngAnimate"])
     root.app.controller "portfolioController", ($scope, Server) ->
+        
         Server.getPortfolioData().then ((portfolio) ->
             $scope.works       = portfolio.works
             $scope.experiments = portfolio.experiments

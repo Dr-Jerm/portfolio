@@ -153,10 +153,15 @@ body
       width 365px
       height 160px
       opacity 1
-      vendor('transition', opacity .25s ease-out)
 
-      &:hover
+      &.tumbnail-hide-animation.ng-hide-add, &.tumbnail-hide-animation.ng-hide-remove 
+        -webkit-transition 0.3s linear all
+        transition 0.3s linear all
+        display block!important
+        opacity 1
+      &.tumbnail-hide-animation.ng-hide 
         opacity 0
+
 
       .caption
         position absolute
@@ -174,3 +179,4 @@ body
     bottom 0px
     color #dddddd
   
+

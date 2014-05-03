@@ -1,9 +1,9 @@
-div.blob
-    div.thumbnail(style='background-image:url({{details.imagePath}})')
+div.blob(ng-mouseover="hover = true" ng-mouseleave="hover = false")
+    div.thumbnail.tumbnail-hide-animation(ng-hide="hover" style='background-image:url({{details.imagePath}})')
     div.title {{details.title}}
     div.date(ng-if="details.date") ({{details.date}})
         //- img(src="{{details.imagePath}}")
         //- div.caption {{details.imageCaption}}
     div.summary {{details.summary}}
     div.link(ng-if="details.link")
-        a(href="{{details.link.href}}") {{details.link.text}}
+        a(href="{{details.link.href}}" target="_blank") {{details.link.text}}
