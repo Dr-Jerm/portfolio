@@ -1,11 +1,13 @@
 backgroundColor = #edf7f2
-textColor = #000000
+textColor = #363636
 secondaryBackgroundColor = #ebebeb
-headerColor = #96ca2d
-subHeaderColor = #b5e655
-accentColor = #4bb5c1
-subAccentColor = #7fc6bc
+headerColor = #E3E3E3
+subHeaderColor = #8A0917
+// headerTextColor = #
+accentColor = #7D7D7D
+subAccentColor = #A3A3A3
 
+headerHeight = 50px
 
 vendor(prop, args)
   -webkit-{prop} args
@@ -24,11 +26,11 @@ background-linear-gradient(startPoint, startColor, startInterval, endColor, endI
 
 @font-face
   font-family 'droid_sansregular'
-  src url('droidsans-webfont.eot')
-  src url('droidsans-webfont.eot?#iefix') format('embedded-opentype'),
-    url('droidsans-webfont.woff') format('woff'),
-    url('droidsans-webfont.ttf') format('truetype'),
-    url('droidsans-webfont.svg#droid_sansregular') format('svg')
+  src url('../font/droidsans-webfont.eot')
+  src url('../font/droidsans-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../font/droidsans-webfont.woff') format('woff'),
+    url('../font/droidsans-webfont.ttf') format('truetype'),
+    url('../font/droidsans-webfont.svg#droid_sansregular') format('svg')
   font-weight normal
   font-style normal
 
@@ -74,57 +76,59 @@ body
     top 0em
     left -1em
     right -1em
-    height 100px
+    height headerHeight
     z-index 1
-    //vendor('box-shadow', 0px 5px 0px 0px accentColor)
-    
-    .sub-name
-      margin 0
+
+    .title
+      display inline-block
+      float left
+      margin-left 1em
+      margin-top -1em
+
+      .sub-name
+        margin 0
 
     .links
+      display inline-block
+      margin-top 5px
+      float right
+
       .logo
-        width 2em
-        height 2em
-        background-size 2em 2em
+        display inline-block
+        display: inline-block;
+        color subAccentColor
+        font-size 2em
+        text-decoration initial
+
+        &:hover
+          color accentColor
     
     .accent-bar
       margin 0
-      width: 100%
+      position absolute
+      left 0em
+      right 0em
+      top headerHeight
+      // width: 100%
       height 5px
-      background-color accentColor
+      background-color subHeaderColor
     
   .body
     position relative
-    top 104px
+    top headerHeight + 4px
     
     .section
+      text-align center
     
       .section-title
-        text-align left
-        width 200px
-        height 40px
         padding-top 15px
         padding-bottom 15px
-        background-color accentColor
-        position relative
-        left -1em
         padding-left 1em
-        vendor('box-shadow', 4px 5px 3px 0px #dddddd)
         
         .text
-          position absolute
-          top 0.2em
-          left 1em
         
         .icon
-          display inline-block
-          width 4em
-          height 4em
-          background-size 4em 4em
-          position absolute
-          top 0.1em
-          right 1em
-          fill subHeaderColor
+          font-size 2.5em
       
       .list
         list-style-type none
@@ -142,7 +146,7 @@ body
     height 160px
     padding: 5px
     background #ffffff
-    background-linear-gradient(top, backgroundColor, 0%, secondaryBackgroundColor, 100%)
+    background-linear-gradient(top, accentColor, 0%, subAccentColor, 100%)
     vendor('box-shadow', 4px 5px 3px 0px #dddddd)
 
     .title

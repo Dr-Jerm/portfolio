@@ -13,16 +13,30 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('assets/js'));
 });
 
+gulp.task('vendorJs', function() {
+  return gulp.src('client/vendorJs/*.js')
+    .pipe(concat('vendor.min.js'))
+    .pipe(gulp.dest('assets/js'))
+})
+
 gulp.task('stylus', function () {
   return gulp.src('client/stylus/*.styl')
-    .pipe(stylus())
+    .pipe(stylus({errors: true}))
     .pipe(concat('style.css'))
     .pipe(gulp.dest('assets/css'));
 });
 
+gulp.task('vendorCss', function() {
+  return gulp.src('client/vendorCss/*.css')
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('assets/css'))
+})
+
 gulp.task('watch', function() {
   gulp.watch('client/coffee/*.coffee', ['scripts']);
   gulp.watch('client/stylus/*.styl', ['stylus']);
+  gulp.watch('client/vendorCss/*.css', ['vendorCss'])
+  gulp.watch('client/vendorJs/*.js', ['vendorJs'])
 });
 
-gulp.task('default', ['scripts', 'stylus', 'watch']);
+gulp.task('default', ['scripts', 'vendorJs',  'stylus', 'vendorCss', 'watch']);
