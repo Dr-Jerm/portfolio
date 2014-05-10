@@ -16,6 +16,11 @@ root.app.directive 'blob', () ->
         scope.leave = (event) ->
             hover = false
             console.log event
+
+root.app.directive 'centered', () ->
+    restrict: 'E'
+    template: '<div style="position:relative;top:0;bottom:0;right:0;left:0"'
+    transclude: true
   
 root.app.directive 'dissapears', () ->
     restrict: 'A'

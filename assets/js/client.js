@@ -236,6 +236,14 @@ root.app.directive('blob', function() {
   };
 });
 
+root.app.directive('centered', function() {
+  return {
+    restrict: 'E',
+    template: '<div style="position:relative;top:0;bottom:0;right:0;left:0"',
+    transclude: true
+  };
+});
+
 root.app.directive('dissapears', function() {
   return {
     restrict: 'A',
