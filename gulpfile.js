@@ -13,8 +13,9 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('assets/js'));
 });
 
+var vendorJsArray = ['client/vendorJs/angular.min.js','client/vendorJs/angular-animate.min.js','client/vendorJs/*.js']
 gulp.task('vendorJs', function() {
-  return gulp.src('client/vendorJs/*.js')
+  return gulp.src(vendorJsArray)
     .pipe(concat('vendor.min.js'))
     .pipe(gulp.dest('assets/js'))
 })

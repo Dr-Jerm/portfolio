@@ -206,7 +206,7 @@ Cube = (function() {
   clock = new THREE.Clock();
   init();
   return animate();
-})();
+});
 
 var root;
 
