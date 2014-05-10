@@ -123,7 +123,7 @@ class Cube
 
     init = ->
         renderer = new THREE.WebGLRenderer({ antialias: true })
-        renderer.setClearColor( 0xffffff, 1 )
+        renderer.setClearColor( 0xedf7f2, 1 )
         renderer.setSize( root.innerWidth, root.innerHeight )
 
         container = document.getElementById( 'container' )
@@ -201,4 +201,4 @@ class Cube
     init()
     animate()
  
-)
+)()

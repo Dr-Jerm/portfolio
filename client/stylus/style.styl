@@ -34,13 +34,6 @@ background-linear-gradient(startPoint, startColor, startInterval, endColor, endI
   font-weight normal
   font-style normal
 
-.continter
-  position relative
-  top 0em
-  bottom 0em
-  right 0em
-  left 0em
-
 .fill
   position absolute
   top 0
@@ -50,11 +43,42 @@ background-linear-gradient(startPoint, startColor, startInterval, endColor, endI
   margin 0
   padding 0
 
+.centered-container
+  position relative
+  top 0
+  left 0
+  height 100%
+  width 100%
+  display table
+
+  .centered
+    display table-cell
+    vertical-align middle
+    text-align center
+
+    
 body
   color textColor
   background-color backgroundColor
 
   font-family 'droid_sansregular'
+
+  .loading-curtain
+    position fixed
+    z-index 100
+
+    background-color backgroundColor
+    background-image url(/images/bg.png)
+    background-repeat repeat
+    background-position top lf
+
+    &.curtain-hide-animation.ng-hide-add, &.curtain-hide-animation.ng-hide-remove 
+      -webkit-transition 1.0s linear all
+      transition 1.0s linear all
+      display table!important
+      opacity 1
+    &.curtain-hide-animation.ng-hide 
+      opacity 0
 
   .background
     position fixed
@@ -72,56 +96,39 @@ body
       background-image url(/images/bg.png)
       background-repeat repeat
       background-position top lf
-  
-  .header
-    background-color headerColor
-    position fixed
-    padding-right 1em
-    padding-left 1em
-    top 0em
-    left -1em
-    right -1em
-    height headerHeight
-    z-index 1
-
-    .title
-      display inline-block
-      float left
-      margin-left 1em
-      margin-top -1em
-
-      .sub-name
-        margin 0
-
-    .links
-      display inline-block
-      margin-top 5px
-      float right
-
-      .logo
-        display inline-block
-        display: inline-block;
-        color subAccentColor
-        font-size 2em
-        text-decoration initial
-
-        &:hover
-          color accentColor
-    
-    .accent-bar
-      margin 0
-      position absolute
-      left 0em
-      right 0em
-      top headerHeight
-      // width: 100%
-      height 5px
-      background-color subHeaderColor
     
   .body
     position relative
-    top headerHeight + 4px
-    
+    // top headerHeight + 4px
+
+    .introduction
+      background-color #171b1e
+      color #fff
+      z-index 1
+      font-size 2em
+      // position fixed
+      .greeting
+        .name
+          font-weight bold
+      // .sub-title
+      .links
+        
+        display inline-block
+        margin-top 2em
+
+        .logo
+          display inline-block
+          display: inline-block;
+          color subAccentColor
+          font-size 1em
+          text-decoration initial
+
+          &:hover
+            color accentColor
+
+    .work
+      z-index 2
+
     .section
       text-align center
     

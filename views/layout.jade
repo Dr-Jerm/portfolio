@@ -10,12 +10,14 @@ html(ng-app="myApp")
 
         script(src='/js/vendor.min.js')
 
-    body.fill
+    body.fill(ng-controller='portfolioController')
         include loader
-        include background
 
-        include header
-        block body
-        include footer
+        div.portfolio
+            include background
+
+            //- include header
+            block body
+            //- include footer
 
         script(src='/js/client.js')

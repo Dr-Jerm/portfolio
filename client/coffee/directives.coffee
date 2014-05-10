@@ -17,10 +17,13 @@ root.app.directive 'blob', () ->
             hover = false
             console.log event
 
-root.app.directive 'centered', () ->
-    restrict: 'E'
-    template: '<div style="position:relative;top:0;bottom:0;right:0;left:0"'
-    transclude: true
+# root.app.directive 'centered', () ->
+#     restrict: 'E'
+#     transclude: true
+#     template : "<div class=\"angular-center-container\">\
+#                     <div class=\"angular-centered\" ng-transclude>\
+#                     </div>\
+#                 </div>"
   
 root.app.directive 'dissapears', () ->
     restrict: 'A'

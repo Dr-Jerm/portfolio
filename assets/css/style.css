@@ -5,13 +5,6 @@
   font-weight: normal;
   font-style: normal;
 }
-.continter {
-  position: relative;
-  top: 0em;
-  bottom: 0em;
-  right: 0em;
-  left: 0em;
-}
 .fill {
   position: absolute;
   top: 0;
@@ -21,10 +14,41 @@
   margin: 0;
   padding: 0;
 }
+.centered-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: table;
+}
+.centered-container .centered {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
 body {
   color: #363636;
   background-color: #edf7f2;
   font-family: 'droid_sansregular';
+}
+body .loading-curtain {
+  position: fixed;
+  z-index: 100;
+  background-color: #edf7f2;
+  background-image: url("/images/bg.png");
+  background-repeat: repeat;
+  background-position: top lf;
+}
+body .loading-curtain.curtain-hide-animation.ng-hide-add,
+body .loading-curtain.curtain-hide-animation.ng-hide-remove {
+  -webkit-transition: 1s linear all;
+  transition: 1s linear all;
+  display: table !important;
+  opacity: 1;
+}
+body .loading-curtain.curtain-hide-animation.ng-hide {
+  opacity: 0;
 }
 body .background {
   position: fixed;
@@ -43,53 +67,34 @@ body .background .mesh {
   background-repeat: repeat;
   background-position: top lf;
 }
-body .header {
-  background-color: #e3e3e3;
-  position: fixed;
-  padding-right: 1em;
-  padding-left: 1em;
-  top: 0em;
-  left: -1em;
-  right: -1em;
-  height: 50px;
+body .body {
+  position: relative;
+}
+body .body .introduction {
+  background-color: #171b1e;
+  color: #fff;
   z-index: 1;
+  font-size: 2em;
 }
-body .header .title {
+body .body .introduction .greeting .name {
+  font-weight: bold;
+}
+body .body .introduction .links {
   display: inline-block;
-  float: left;
-  margin-left: 1em;
-  margin-top: -1em;
+  margin-top: 2em;
 }
-body .header .title .sub-name {
-  margin: 0;
-}
-body .header .links {
-  display: inline-block;
-  margin-top: 5px;
-  float: right;
-}
-body .header .links .logo {
+body .body .introduction .links .logo {
   display: inline-block;
   display: inline-block;
   color: #a3a3a3;
-  font-size: 2em;
+  font-size: 1em;
   text-decoration: initial;
 }
-body .header .links .logo:hover {
+body .body .introduction .links .logo:hover {
   color: #7d7d7d;
 }
-body .header .accent-bar {
-  margin: 0;
-  position: absolute;
-  left: 0em;
-  right: 0em;
-  top: 50px;
-  height: 5px;
-  background-color: #8a0917;
-}
-body .body {
-  position: relative;
-  top: 54px;
+body .body .work {
+  z-index: 2;
 }
 body .body .section {
   text-align: center;

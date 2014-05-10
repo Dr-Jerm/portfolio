@@ -1,8 +1,18 @@
 extends layout
 
 block body
-  div.body(ng-controller='portfolioController')
-    div.bin
+  div.body
+    div.centered-container.introduction(ng-style="getInnerHeightStyle('height')")
+        div.centered
+            div.greeting Hey, I'm 
+                span.name Jeremy Bernstein
+                span ,
+            div.sub-title Full Stack Developer & Engineer
+            div.links
+                a.logo.icon-mail(href="mailto:dr.jerm.io@gmail.com" target="_blank")
+                a.logo.icon-github(href="https://github.com/Dr-Jerm" target="_blank")
+                a.logo.icon-linkedin(href="https://www.linkedin.com/pub/jeremy-bernstein/1a/b45/b64" target="_blank")
+    div.work
         div.section
             div.section-title
                 h2.text Work

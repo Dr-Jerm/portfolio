@@ -5,6 +5,19 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
 (function() {
   root.app = angular.module("myApp", ["ngAnimate"]);
   root.app.controller("portfolioController", function($scope, Server) {
+    $scope.loaded = false;
+    root.scrollTo(0, 0);
+    $scope.innerHeight = root.innerHeight;
+    $scope.getInnerHeightStyle = function(css) {
+      var style;
+      style = {};
+      style[css] = $scope.innerHeight + 'px';
+      return style;
+    };
+    root.addEventListener('resize', function() {
+      $scope.innerHeight = root.innerHeight;
+      return $scope.$apply();
+    });
     return Server.getPortfolioData().then((function(portfolio) {
       $scope.works = portfolio.works;
       $scope.experiments = portfolio.experiments;
@@ -150,7 +163,7 @@ Cube = (function() {
     renderer = new THREE.WebGLRenderer({
       antialias: true
     });
-    renderer.setClearColor(0xffffff, 1);
+    renderer.setClearColor(0xedf7f2, 1);
     renderer.setSize(root.innerWidth, root.innerHeight);
     container = document.getElementById('container');
     camera = new THREE.PerspectiveCamera(60, root.innerWidth / root.innerHeight, 1, 20000);
@@ -206,7 +219,7 @@ Cube = (function() {
   clock = new THREE.Clock();
   init();
   return animate();
-});
+})();
 
 var root;
 
@@ -233,14 +246,6 @@ root.app.directive('blob', function() {
         return console.log(event);
       };
     }
-  };
-});
-
-root.app.directive('centered', function() {
-  return {
-    restrict: 'E',
-    template: '<div style="position:relative;top:0;bottom:0;right:0;left:0"',
-    transclude: true
   };
 });
 
