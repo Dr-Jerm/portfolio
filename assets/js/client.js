@@ -225,42 +225,14 @@ var root;
 
 root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
-root.app.directive('blob', function() {
+root.app.directive('carouselle', function() {
   return {
-    restrict: 'A',
+    restrict: 'E',
     scope: {
-      details: '='
+      items: '='
     },
-    templateUrl: 'partials/blob',
-    link: function(scope, element, attrs) {
-      console.log('blob ' + scope.title + ' loaded!');
-      scope.hover = false;
-      scope.enter = function(event) {
-        var hover;
-        console.log(event);
-        return hover = true;
-      };
-      return scope.leave = function(event) {
-        var hover;
-        hover = false;
-        return console.log(event);
-      };
-    }
-  };
-});
-
-root.app.directive('dissapears', function() {
-  return {
-    restrict: 'A',
-    link: function(scope, element, attrs, $timeout) {
-      var fade, hover, opacity;
-      hover = false;
-      opacity = 1.0;
-      fade = function() {
-        return $timeout(fadeHelper, 30);
-      };
-      return fadeHelper;
-    }
+    templateUrl: 'partials/carouselle',
+    link: function(scope, element, attrs) {}
   };
 });
 

@@ -17,18 +17,15 @@ block body
             div.section-title
                 h2.text Work
                 //- span.icon.icon-suitcase
-            ul.list.work
-                li(blob ng-repeat="details in works" details="details")
-        div.section
-            div.section-title
-                h2.text Fun
-                //- span.icon.icon-gamepad
-            ul.list.experiment
-                li(blob ng-repeat="details in experiments" details="details")
+            carouselle(items="works")
         div.section
             div.section-title
                 h2.text Projects
                 //- span.icon.icon-rocket
-            ul.list.history
-                li(blob ng-repeat="details in histories" details="details")
+            carouselle(items="histories")
+        div.section
+            div.section-title
+                h2.text Fun
+                //- span.icon.icon-gamepad
+            carouselle(items="experiments")
                 

@@ -1,0 +1,12 @@
+div.carouselle
+  ul.list
+    li(ng-repeat="details in items")
+      div.blob(ng-mouseover="hover = true" ng-mouseleave="hover = false")
+        div.thumbnail.tumbnail-hide-animation(ng-hide="hover" style='background-image:url({{details.imagePath}})')
+        div.title {{details.title}}
+        div.date(ng-if="details.date") ({{details.date}})
+            //- img(src="{{details.imagePath}}")
+            //- div.caption {{details.imageCaption}}
+        div.summary {{details.summary}}
+        div.link(ng-if="details.link")
+            a(href="{{details.link.href}}" target="_blank") {{details.link.text}}
