@@ -1,11 +1,16 @@
 root = exports ? this
   
-root.app.directive 'carouselle', () ->
+## would like to go back to transcluding the inner carousel at some point
+
+mod = (x, m) ->
+    (x%m + m)%m
+
+root.app.directive 'carousel', () ->
     restrict: 'E'
     scope: {
         items: '='
     }
-    templateUrl: 'partials/carouselle'
+    templateUrl: 'partials/carousel'
     link: (scope, element, attrs) ->
 
         scope.debug = ->
@@ -18,6 +23,14 @@ root.app.directive 'carouselle', () ->
         scope.selected = 0
         scope.left = true
         scope.right = false
+
+        scope.moveRight = ->
+            newSelected = mod(scope.selected+1, scope.itemCount)
+            scope.switchTo(newSelected)
+
+        scope.moveLeft = -> 
+            newSelected = mod(scope.selected-1, scope.itemCount)
+            scope.switchTo(newSelected)
 
         scope.getClass = (index) ->
             if index == scope.selected
@@ -37,7 +50,4 @@ root.app.directive 'carouselle', () ->
             if index < scope.selected
                 scope.right = true
                 scope.left = false;
-            scope.selected = index
-            console.log(index);
-        
-
+            scope.selected = index        

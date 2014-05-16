@@ -69,6 +69,7 @@ body .background .mesh {
 }
 body .body {
   position: relative;
+  overflow-x: hidden;
 }
 body .body .introduction {
   background-color: #171b1e;
@@ -116,35 +117,33 @@ body .body .section .list {
   padding: 0;
   text-align: center;
 }
-body .carouselle {
+body .carousel {
   position: relative;
 }
-body .carouselle .carouselle-item {
+body .carousel .carousel-item {
   position: absolute;
   left: 50%;
   opacity: 1;
 }
-body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide-add,
-body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide-remove {
+body .carousel .carousel-item.carousel-hide-animation.ng-hide-add,
+body .carousel .carousel-item.carousel-hide-animation.ng-hide-remove {
   -webkit-transition: 1s ease-in-out left, 0.5s ease-in-out opacity;
   transition: 1s ease-in-out left, 0.5s ease-in-out opacity;
   display: inherit !important;
   left: 50%;
   opacity: 1;
 }
-body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide {
-  opacity: 0;
+body .carousel .carousel-item.carousel-hide-animation.ng-hide.left {
+  left: -100%;
 }
-body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide.left {
-  left: 0%;
+body .carousel .carousel-item.carousel-hide-animation.ng-hide.right {
+  left: 200%;
 }
-body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide.right {
-  left: 100%;
-}
-body .carouselle .crumbs {
+body .carousel .crumbs {
   margin-top: 20em;
 }
-body .carouselle .crumbs .crumb {
+body .carousel .crumbs .crumb {
+  display: inline-block;
   margin: 5px;
 }
 body .blob {

@@ -3,7 +3,7 @@ var root;
 root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
 (function() {
-  root.app = angular.module("myApp", ["ngAnimate"]);
+  root.app = angular.module("myApp", ["ngAnimate", "ngTouch"]);
   root.app.controller("portfolioController", function($scope, Server) {
     $scope.loaded = false;
     root.scrollTo(0, 0);
@@ -221,17 +221,21 @@ Cube = (function() {
   return animate();
 })();
 
-var root;
+var mod, root;
 
 root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
-root.app.directive('carouselle', function() {
+mod = function(x, m) {
+  return (x % m + m) % m;
+};
+
+root.app.directive('carousel', function() {
   return {
     restrict: 'E',
     scope: {
       items: '='
     },
-    templateUrl: 'partials/carouselle',
+    templateUrl: 'partials/carousel',
     link: function(scope, element, attrs) {
       scope.debug = function() {
         debugger;
@@ -244,6 +248,16 @@ root.app.directive('carouselle', function() {
       scope.selected = 0;
       scope.left = true;
       scope.right = false;
+      scope.moveRight = function() {
+        var newSelected;
+        newSelected = mod(scope.selected + 1, scope.itemCount);
+        return scope.switchTo(newSelected);
+      };
+      scope.moveLeft = function() {
+        var newSelected;
+        newSelected = mod(scope.selected - 1, scope.itemCount);
+        return scope.switchTo(newSelected);
+      };
       scope.getClass = function(index) {
         if (index === scope.selected) {
           if (scope.left) {
@@ -269,8 +283,7 @@ root.app.directive('carouselle', function() {
           scope.right = true;
           scope.left = false;
         }
-        scope.selected = index;
-        return console.log(index);
+        return scope.selected = index;
       };
     }
   };

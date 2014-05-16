@@ -2,7 +2,7 @@
 root = exports ? this
 
 (->
-    root.app = angular.module("myApp", ["ngAnimate"])
+    root.app = angular.module("myApp", ["ngAnimate", "ngTouch"])
     root.app.controller "portfolioController", ($scope, Server) ->
         $scope.loaded = false
         root.scrollTo 0,0
