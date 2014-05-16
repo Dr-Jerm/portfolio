@@ -250,11 +250,13 @@ root.app.directive('carousel', function() {
       scope.right = false;
       scope.moveRight = function() {
         var newSelected;
+        console.log("right");
         newSelected = mod(scope.selected + 1, scope.itemCount);
         return scope.switchTo(newSelected);
       };
       scope.moveLeft = function() {
         var newSelected;
+        console.log("left");
         newSelected = mod(scope.selected - 1, scope.itemCount);
         return scope.switchTo(newSelected);
       };
@@ -283,7 +285,8 @@ root.app.directive('carousel', function() {
           scope.right = true;
           scope.left = false;
         }
-        return scope.selected = index;
+        scope.selected = index;
+        return console.log(index);
       };
     }
   };

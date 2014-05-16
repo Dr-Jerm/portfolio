@@ -25,10 +25,12 @@ root.app.directive 'carousel', () ->
         scope.right = false
 
         scope.moveRight = ->
+            console.log "right"
             newSelected = mod(scope.selected+1, scope.itemCount)
             scope.switchTo(newSelected)
 
         scope.moveLeft = -> 
+            console.log "left"
             newSelected = mod(scope.selected-1, scope.itemCount)
             scope.switchTo(newSelected)
 
@@ -50,4 +52,7 @@ root.app.directive 'carousel', () ->
             if index < scope.selected
                 scope.right = true
                 scope.left = false;
-            scope.selected = index        
+            scope.selected = index
+            console.log(index);
+        
+

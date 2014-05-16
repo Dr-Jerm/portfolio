@@ -1,4 +1,4 @@
-div.carousel(ng-swipe-right="moveRight()" ng-swipe-left="moveLeft()")
+div.carousel(ng-swipe-left="moveRight()" ng-swipe-right="moveLeft()")
     div.debug(ng-click="debug()") debug
     ul.list
         li.carousel-item.carousel-hide-animation(ng-repeat="details in items" ng-hide="selected != $index" ng-class="getClass($index)")
