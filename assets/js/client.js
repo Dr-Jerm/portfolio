@@ -232,7 +232,43 @@ root.app.directive('carouselle', function() {
       items: '='
     },
     templateUrl: 'partials/carouselle',
-    link: function(scope, element, attrs) {}
+    link: function(scope, element, attrs) {
+      scope.debug = function() {
+        debugger;
+      };
+      scope.$watch('items', function() {
+        if (scope.items) {
+          return scope.itemCount = scope.items.length;
+        }
+      });
+      scope.selected = 0;
+      scope.animDir = void 0;
+      scope.isVisible = function(index) {
+        return index === scope.selected;
+      };
+      scope.getAnimDir = function() {
+        if (scope.animDir === 'left') {
+          return {
+            left: "-1000px"
+          };
+        }
+        if (scope.animDir === 'right') {
+          return {
+            left: root.innerHeight + 1000 + "px"
+          };
+        }
+      };
+      return scope.switchTo = function(index) {
+        if (index > scope.selected) {
+          scope.animDir = 'left';
+        }
+        if (index < scope.selected) {
+          scope.animDir = 'right';
+        }
+        scope.selected = index;
+        return console.log(index);
+      };
+    }
   };
 });
 

@@ -32,8 +32,33 @@ root.app.directive 'carouselle', () ->
     }
     templateUrl: 'partials/carouselle'
     link: (scope, element, attrs) ->
-        # element.css('opacity', 1)
-        # console.log element.css('opacity')
 
+        scope.debug = ->
+            debugger
+
+        scope.$watch('items', ->
+            if scope.items
+                scope.itemCount = scope.items.length
+        )
+        scope.selected = 0
+        scope.animDir = undefined
+
+        scope.isVisible = (index) ->
+            return index == scope.selected
+
+        scope.getAnimDir = ->
+            if scope.animDir == 'left'
+                return {left: "-1000px"}
+            if scope.animDir == 'right'
+                return {left: root.innerHeight+1000+"px"}
+            # return {left: '0px'}
+
+        scope.switchTo = (index) ->
+            if index > scope.selected
+                scope.animDir = 'left'
+            if index < scope.selected
+                scope.animDir = 'right'
+            scope.selected = index
+            console.log(index);
         
 

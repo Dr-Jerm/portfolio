@@ -154,6 +154,10 @@ body
           display inline-flex
           margin 5px
 
+  .carouselle
+    .carouselle-item 
+      position relative
+
   .blob
     width 365px
     height 160px
@@ -197,3 +201,7 @@ body
     color #dddddd
   
 
+.carouselle-hide-animation.ng-hide-add, .carouselle-hide-animation.ng-hide-remove
+  -webkit-transition 0.3s linear all
+  transition 0.3s linear all
+  display block!important

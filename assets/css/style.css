@@ -120,6 +120,9 @@ body .body .section .list li {
   display: inline-flex;
   margin: 5px;
 }
+body .carouselle .carouselle-item {
+  position: relative;
+}
 body .blob {
   width: 365px;
   height: 160px;
@@ -166,4 +169,10 @@ body .footer {
   position: fixed;
   bottom: 0px;
   color: #ddd;
+}
+.carouselle-hide-animation.ng-hide-add,
+.carouselle-hide-animation.ng-hide-remove {
+  -webkit-transition: 0.3s linear all;
+  transition: 0.3s linear all;
+  display: block !important;
 }
