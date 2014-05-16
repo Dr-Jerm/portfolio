@@ -116,14 +116,40 @@ body .body .section .list {
   padding: 0;
   text-align: center;
 }
-body .body .section .list li {
-  display: inline-flex;
-  margin: 5px;
-}
-body .carouselle .carouselle-item {
+body .carouselle {
   position: relative;
 }
+body .carouselle .carouselle-item {
+  position: absolute;
+  left: 50%;
+  opacity: 1;
+}
+body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide-add,
+body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide-remove {
+  -webkit-transition: 1s ease-in-out left, 0.5s ease-in-out opacity;
+  transition: 1s ease-in-out left, 0.5s ease-in-out opacity;
+  display: inherit !important;
+  left: 50%;
+  opacity: 1;
+}
+body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide {
+  opacity: 0;
+}
+body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide.left {
+  left: 0%;
+}
+body .carouselle .carouselle-item.carouselle-hide-animation.ng-hide.right {
+  left: 100%;
+}
+body .carouselle .crumbs {
+  margin-top: 20em;
+}
+body .carouselle .crumbs .crumb {
+  margin: 5px;
+}
 body .blob {
+  position: relative;
+  left: -50%;
   width: 365px;
   height: 160px;
   padding: 5px;
@@ -169,10 +195,4 @@ body .footer {
   position: fixed;
   bottom: 0px;
   color: #ddd;
-}
-.carouselle-hide-animation.ng-hide-add,
-.carouselle-hide-animation.ng-hide-remove {
-  -webkit-transition: 0.3s linear all;
-  transition: 0.3s linear all;
-  display: block !important;
 }

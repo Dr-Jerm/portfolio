@@ -150,15 +150,42 @@ body
         padding 0
         text-align center
   
-        li
-          display inline-flex
-          margin 5px
+        // li
+        //   display inline-block
+        //   margin 5px
 
   .carouselle
+    position relative
     .carouselle-item 
-      position relative
+      position absolute
+      left 50%
+      opacity 1
+
+      &.carouselle-hide-animation.ng-hide-add, &.carouselle-hide-animation.ng-hide-remove
+        -webkit-transition 1s ease-in-out left, 0.5s ease-in-out opacity
+        transition 1s ease-in-out left, 0.5s ease-in-out opacity
+        display inherit!important
+        left 50%
+        opacity 1
+
+      &.carouselle-hide-animation.ng-hide
+        // left 100%
+        opacity 0
+        &.left
+          left 0%
+        &.right
+          left 100%
+        // display inline-block!important
+
+    .crumbs
+      margin-top 20em
+      .crumb
+        margin 5px
 
   .blob
+    position relative
+    left -50%
+
     width 365px
     height 160px
     padding: 5px
@@ -200,8 +227,3 @@ body
     bottom 0px
     color #dddddd
   
-
-.carouselle-hide-animation.ng-hide-add, .carouselle-hide-animation.ng-hide-remove
-  -webkit-transition 0.3s linear all
-  transition 0.3s linear all
-  display block!important

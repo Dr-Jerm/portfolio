@@ -242,28 +242,32 @@ root.app.directive('carouselle', function() {
         }
       });
       scope.selected = 0;
-      scope.animDir = void 0;
-      scope.isVisible = function(index) {
-        return index === scope.selected;
-      };
-      scope.getAnimDir = function() {
-        if (scope.animDir === 'left') {
-          return {
-            left: "-1000px"
-          };
+      scope.left = true;
+      scope.right = false;
+      scope.getClass = function(index) {
+        if (index === scope.selected) {
+          if (scope.left) {
+            return 'right';
+          }
+          if (scope.right) {
+            return 'left';
+          }
         }
-        if (scope.animDir === 'right') {
-          return {
-            left: root.innerHeight + 1000 + "px"
-          };
+        if (index > scope.selected) {
+          return 'right';
+        }
+        if (index < scope.selected) {
+          return 'left';
         }
       };
       return scope.switchTo = function(index) {
         if (index > scope.selected) {
-          scope.animDir = 'left';
+          scope.left = true;
+          scope.right = false;
         }
         if (index < scope.selected) {
-          scope.animDir = 'right';
+          scope.right = true;
+          scope.left = false;
         }
         scope.selected = index;
         return console.log(index);

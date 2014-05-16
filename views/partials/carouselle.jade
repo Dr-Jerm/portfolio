@@ -1,7 +1,7 @@
 div.carouselle
     div.debug(ng-click="debug()") debug
     ul.list
-        li.carouselle-item.carouselle-hide-animation(ng-repeat="details in items" ng-show="selected == $index" ng-style="getAnimDir()")
+        li.carouselle-item.carouselle-hide-animation(ng-repeat="details in items" ng-hide="selected != $index" ng-class="getClass($index)")
             div.blob(ng-mouseover="hover=true" ng-mouseleave="hover=false")
                 div.thumbnail.tumbnail-hide-animation(ng-hide="hover" style='background-image:url({{details.imagePath}})')
                 div.title {{details.title}}
@@ -12,5 +12,5 @@ div.carouselle
                 div.link(ng-if="details.link")
                     a(href="{{details.link.href}}" target="_blank") {{details.link.text}}
     div.crumbs
-        span.crumb(ng-repeat="i in items")
+        span.crumb(ng-repeat="i in items" style="display:inline-block")
             div(ng-click="switchTo($index)") {{$index}}

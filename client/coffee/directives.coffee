@@ -1,29 +1,4 @@
 root = exports ? this
-
-# root.app.directive 'blob', () ->
-#     restrict: 'EA'
-#     scope: {
-#         details: '='
-#     }
-#     templateUrl: 'partials/blob'
-#     link: (scope, element, attrs) ->
-#         console.log('blob ' +scope.title+' loaded!')
-#         scope.hover = false
-
-#         scope.enter = (event) ->
-#             console.log event
-#             hover = true
-#         scope.leave = (event) ->
-#             hover = false
-#             console.log event
-
-# root.app.directive 'centered', () ->
-#     restrict: 'E'
-#     transclude: true
-#     template : "<div class=\"angular-center-container\">\
-#                     <div class=\"angular-centered\" ng-transclude>\
-#                     </div>\
-#                 </div>"
   
 root.app.directive 'carouselle', () ->
     restrict: 'E'
@@ -41,23 +16,27 @@ root.app.directive 'carouselle', () ->
                 scope.itemCount = scope.items.length
         )
         scope.selected = 0
-        scope.animDir = undefined
+        scope.left = true
+        scope.right = false
 
-        scope.isVisible = (index) ->
-            return index == scope.selected
-
-        scope.getAnimDir = ->
-            if scope.animDir == 'left'
-                return {left: "-1000px"}
-            if scope.animDir == 'right'
-                return {left: root.innerHeight+1000+"px"}
-            # return {left: '0px'}
+        scope.getClass = (index) ->
+            if index == scope.selected
+                if scope.left
+                    return 'right'
+                if scope.right
+                    return 'left'
+            if index > scope.selected
+                return 'right'
+            if index < scope.selected
+                return 'left'
 
         scope.switchTo = (index) ->
             if index > scope.selected
-                scope.animDir = 'left'
+                scope.left = true
+                scope.right = false
             if index < scope.selected
-                scope.animDir = 'right'
+                scope.right = true
+                scope.left = false;
             scope.selected = index
             console.log(index);
         
