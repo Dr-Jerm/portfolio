@@ -27,6 +27,12 @@
   vertical-align: middle;
   text-align: center;
 }
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
 body {
   color: #363636;
   background-color: #edf7f2;
@@ -149,46 +155,40 @@ body .carousel .crumbs .crumb {
 body .blob {
   position: relative;
   left: -50%;
-  width: 365px;
   height: 160px;
   padding: 5px;
-  background: #fff;
-  background-color: #e3e3e3;
-  background-image: -webkit-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: -moz-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: -ms-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: -o-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
 }
 body .blob .title {
   font-size: 150%;
 }
 body .blob .thumbnail {
-  position: absolute;
   width: 365px;
   height: 160px;
-  opacity: 1;
-}
-body .blob .thumbnail.tumbnail-hide-animation.ng-hide-add,
-body .blob .thumbnail.tumbnail-hide-animation.ng-hide-remove {
-  -webkit-transition: 0.3s linear all;
-  transition: 0.3s linear all;
-  display: block !important;
-  opacity: 1;
-}
-body .blob .thumbnail.tumbnail-hide-animation.ng-hide {
-  opacity: 0;
-}
-body .blob .thumbnail .caption {
-  position: absolute;
-  display: inline-block;
+  margin-right: auto;
+  margin-left: auto;
 }
 body .blob .summary {
   padding: 5px;
   font-size: 75%;
 }
+body .blob .link {
+  padding: 8px;
+  margin-right: auto;
+  margin-left: auto;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 0.625rem;
+  font-weight: 700;
+  border-color: #5eb991;
+  width: 125px;
+  cursor: pointer;
+}
 body .blob .link a {
   z-index: 1;
+  color: #5eb991;
+}
+body .blob .link:hover {
+  color: #5eb991 !important;
 }
 body .footer {
   position: fixed;
