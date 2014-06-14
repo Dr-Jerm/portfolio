@@ -145,9 +145,6 @@ body .carousel .carousel-item.carousel-hide-animation.ng-hide.left {
 body .carousel .carousel-item.carousel-hide-animation.ng-hide.right {
   left: 200%;
 }
-body .carousel .crumbs {
-  margin-top: 20em;
-}
 body .carousel .crumbs .crumb {
   display: inline-block;
   margin: 5px;
