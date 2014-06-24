@@ -2,7 +2,7 @@
 root = exports ? this
 
 (->
-    root.app = angular.module("myApp", ["ngAnimate", "ngTouch"])
+    root.app = angular.module("myApp", ["ngAnimate"])
     root.app.controller "portfolioController", ($scope, Server) ->
         $scope.loaded = false
         root.scrollTo 0,0
@@ -26,12 +26,6 @@ root = exports ? this
             # $scope.loaded = true
         ), (error) ->
             console.error error
-
-    root.addEventListener 'touchmove', (event) ->
-        if event.touches.length == 2
-            event.stopPropagation()
-            event.preventDefault()
-
 
     console.log "Up and Running!"
 )()

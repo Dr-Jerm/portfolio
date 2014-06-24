@@ -3,7 +3,7 @@ var root;
 root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
 (function() {
-  root.app = angular.module("myApp", ["ngAnimate", "ngTouch"]);
+  root.app = angular.module("myApp", ["ngAnimate"]);
   root.app.controller("portfolioController", function($scope, Server) {
     $scope.loaded = false;
     root.scrollTo(0, 0);
@@ -25,12 +25,6 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
     }), function(error) {
       return console.error(error);
     });
-  });
-  root.addEventListener('touchmove', function(event) {
-    if (event.touches.length === 2) {
-      event.stopPropagation();
-      return event.preventDefault();
-    }
   });
   return console.log("Up and Running!");
 })();
@@ -221,72 +215,29 @@ Cube = (function() {
   return animate();
 })();
 
-var mod, root;
+var root;
 
 root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
-mod = function(x, m) {
-  return (x % m + m) % m;
-};
-
-root.app.directive('carousel', function() {
+root.app.directive('blob', function() {
   return {
-    restrict: 'E',
+    restrict: 'A',
     scope: {
-      items: '='
+      details: '='
     },
-    templateUrl: 'partials/carousel',
+    templateUrl: 'partials/blob',
     link: function(scope, element, attrs) {
-      scope.debug = function() {
-        debugger;
+      console.log('blob ' + scope.details.title + ' loaded!');
+      scope.hover = false;
+      scope.enter = function(event) {
+        var hover;
+        console.log(event);
+        return hover = true;
       };
-      scope.$watch('items', function() {
-        if (scope.items) {
-          return scope.itemCount = scope.items.length;
-        }
-      });
-      scope.selected = 0;
-      scope.left = true;
-      scope.right = false;
-      scope.moveRight = function() {
-        var newSelected;
-        console.log("right");
-        newSelected = mod(scope.selected + 1, scope.itemCount);
-        return scope.switchTo(newSelected);
-      };
-      scope.moveLeft = function() {
-        var newSelected;
-        console.log("left");
-        newSelected = mod(scope.selected - 1, scope.itemCount);
-        return scope.switchTo(newSelected);
-      };
-      scope.getClass = function(index) {
-        if (index === scope.selected) {
-          if (scope.left) {
-            return 'right';
-          }
-          if (scope.right) {
-            return 'left';
-          }
-        }
-        if (index > scope.selected) {
-          return 'right';
-        }
-        if (index < scope.selected) {
-          return 'left';
-        }
-      };
-      return scope.switchTo = function(index) {
-        if (index > scope.selected) {
-          scope.left = true;
-          scope.right = false;
-        }
-        if (index < scope.selected) {
-          scope.right = true;
-          scope.left = false;
-        }
-        scope.selected = index;
-        return console.log(index);
+      return scope.leave = function(event) {
+        var hover;
+        hover = false;
+        return console.log(event);
       };
     }
   };

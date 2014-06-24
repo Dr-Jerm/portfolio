@@ -3,7 +3,7 @@
         {
             "title": "PlayStation Now",
             "date": "July 2013 - Current",
-            "imagePath": "/images/psNow.jpg",
+            "imagePath": "/images/psnowlogo.jpg",
             "summary": "Part of a small angular.js team tasked to build out the metrics and tools used to monitor the cloud gaming network PlayStation Now. Responsible for building out the software and database used to add and track server hardware throughout PlayStation Now's global datacenters.",
             "link": {
                 "text": "Gaikai",
