@@ -1,6 +1,7 @@
 div.blob(ng-mouseover="hover = true" ng-mouseleave="hover = false")
     div.thumbnail.tumbnail-hide-animation(ng-hide="hover" style='background-image:url({{details.imagePath}})')
     div.title {{details.title}}
+    div.position(ng-if="details.position") {{details.position}}
     div.date(ng-if="details.date") ({{details.date}})
         //- img(src="{{details.imagePath}}")
         //- div.caption {{details.imageCaption}}

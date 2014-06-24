@@ -1,7 +1,8 @@
 {
-    "works": [
+    "achievements": [
         {
             "title": "PlayStation Now",
+            "position": "Front-End Engineer",
             "date": "July 2013 - Current",
             "imagePath": "/images/psnowlogo.jpg",
             "summary": "Part of a small angular.js team tasked to build out the metrics and tools used to monitor the cloud gaming network PlayStation Now. Responsible for building out the software and database used to add and track server hardware throughout PlayStation Now's global datacenters.",
@@ -11,19 +12,66 @@
             }
         },
         {
+            "title": "Alloy",
+            "position": "Technical Supervisor, Developer",
+            "date": "2011 - 2012",
+            "imagePath": "/images/alloy2.jpg",
+            "summary": "Brought a derelict world to life by creating robot ecosystems in the Unreal Development Kit 3. Developed the pipeline between the art and technical teams. Lead a team of 9 student programmers. Developed modular AI companions based on the in-game components used to assemble the robots.",
+            "link": {
+                "text": "Alloy Video Game",
+                "href": "http://alloyvideogame.com"
+            }
+        },
+        {
+            "title": "Channel Breachgate",
+            "position": "Producer, VFX Artist",
+            "date": "2010 - 2012",
+            "imagePath": "/images/harryVsHalo.jpg",
+            "summary": "Co-created a viral video that was picked up on G4TV and broadcasted in primetime on the 'Attack of the Show: Around the Net'. Also acted as producer and/or VFX artist for various other video game fan films and short films under the YouTube channel Breachgate.",
+            "link": {
+                "text": "Breachgate Channel",
+                "href": "https://www.youtube.com/channel/UCTcUE8sT2VS852-TaF2uvCw"
+            }
+        },
+        {
             "title": "Sandia National Labs",
+            "position": "Technical Research Intern",
             "imagePath": "/images/snl.jpg",
             "summary": "Part of a video game research team. The primary objective was to detect agression based on forum postings with the goal of being able to mine public forums and be able to identify posters who would actually 'follow through' with their statements."
         },
         {
             "title": "University of New Mexico",
+            "position": "Major: Computer Science, Minor: Film & Digital Media",
+            "date": "2007 - 2013",
             "imagePath": "/images/unm.jpg",
-            "summary": "Led and taught lab sections for Intro to Python and Intro to Game Development courses. I had the opportunity to prepare, demonstrate, and guide students through daily examples and exercises. Also grading student work was involved."
+            "summary": "Did my first two years in the School of Fine Arts before switching to Engineering. Focused primarily on film VFX and game development. Led and taught lab sections for Intro to Python and Intro to Game Development undergraduate courses."
         }
     ],
-    "experiments" : [
+    "badges" : [
         {
-            "title": "Docker"
+            "title": "AngularJS",
+            "imagePath": "/images/angular.jpg",
+            "link": "https://angularjs.org/"
+        },
+        {
+            "title": "UDK3",
+            "imagePath": "/images/udk.jpg",
+            "link": "httpsp://www.unrealengine.com/"
+        },
+        {
+            "title": "NodeJS",
+            "imagePath": "/images/nodejs.jpg",
+            "link": "http://www.nodejs.org/"
+        },
+        {
+            "title": "Docker",
+            "imagePath": "/images/docker.jpg",
+            "link": "http://www.docker.com/"
+        },
+        {
+            "title": "Autodesk Maya",
+            "imagePath": "/images/maya.jpg",
+            "link": "http://www.autodesk.com/products/autodesk-maya/overview"
         }
     ]
 }

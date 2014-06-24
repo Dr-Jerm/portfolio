@@ -18,3 +18,10 @@ root.app.directive 'blob', () ->
         scope.leave = (event) ->
             hover = false
             console.log event
+
+root.app.directive 'badge', () ->
+    restrict: 'A'
+    scope: {
+        details: '='
+    }
+    templateUrl: 'partials/badge'

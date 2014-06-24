@@ -134,12 +134,12 @@ body
 
     .section
       text-align center
+      margin-right auto
+      margin-left auto
+      max-width 1160px
     
       .section-title
-        padding-top 15px
-        padding-bottom 15px
-        padding-left 1em
-        font-size 2.5em
+        font-size 2vw
         
         .text
         
@@ -166,7 +166,15 @@ body
     // vendor('box-shadow', 4px 5px 3px 0px #dddddd)
 
     .title
-      font-size 150% 
+      font-size 150%
+
+    .date
+      font-size 80%
+      color lighten(textColor, 20%)
+    .position
+      font-size 80%
+      color darken(textColor, 20%)
+       
 
     .thumbnail
       position absolute
@@ -182,10 +190,6 @@ body
       &.tumbnail-hide-animation.ng-hide 
         opacity 0
 
-
-      .caption
-        position absolute
-        display inline-block
     .summary
       padding 5px
       font-size 75%
@@ -193,6 +197,18 @@ body
     .link
       a
         z-index 1
+
+  .badge
+    width 180px
+    height 160px
+    padding: 5px
+    background #ffffff
+    background-linear-gradient(top, #E3E3E3, 0%, #edf7f2, 100%)
+    
+    .thumbnail
+      position relative
+      width 180px
+      height 160px
 
   .footer
     position fixed

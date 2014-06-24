@@ -4,9 +4,8 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
 (function() {
   root.app = angular.module("myApp", ["ngAnimate"]);
-  root.app.controller("portfolioController", function($scope, Server) {
+  root.app.controller("portfolioController", function($scope, $timeout, Server) {
     $scope.loaded = false;
-    root.scrollTo(0, 0);
     $scope.innerHeight = root.innerHeight;
     $scope.getInnerHeightStyle = function(css) {
       var style;
@@ -19,9 +18,12 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
       return $scope.$apply();
     });
     return Server.getPortfolioData().then((function(portfolio) {
-      $scope.works = portfolio.works;
-      $scope.experiments = portfolio.experiments;
-      return $scope.histories = portfolio.histories;
+      $scope.achievements = portfolio.achievements;
+      $scope.badges = portfolio.badges;
+      return $timeout(function() {
+        root.scrollTo(0, 0);
+        return $scope.loaded = true;
+      }, 1000);
     }), function(error) {
       return console.error(error);
     });
@@ -243,12 +245,22 @@ root.app.directive('blob', function() {
   };
 });
 
+root.app.directive('badge', function() {
+  return {
+    restrict: 'A',
+    scope: {
+      details: '='
+    },
+    templateUrl: 'partials/badge'
+  };
+});
+
 var root;
 
 root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
 (function() {
-  return root.app.factory('Server', function($q, $http) {
+  root.app.factory('Server', function($q, $http) {
     var getPortfolioData;
     getPortfolioData = function() {
       var deferred;
@@ -263,5 +275,21 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
     return {
       getPortfolioData: getPortfolioData
     };
+  });
+  return root.app.factory('Loader', function($q) {
+    var Loader, promises;
+    promises = [];
+    Loader = {
+      loaded: false,
+      push: function(promise) {
+        return promises.push(promise);
+      },
+      register: function() {
+        return $q.all(promises).then(function(results) {
+          return Loader.loaded = true;
+        });
+      }
+    };
+    return Loader;
   });
 })();

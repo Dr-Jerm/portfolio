@@ -3,9 +3,8 @@ root = exports ? this
 
 (->
     root.app = angular.module("myApp", ["ngAnimate"])
-    root.app.controller "portfolioController", ($scope, Server) ->
+    root.app.controller "portfolioController", ($scope, $timeout, Server) ->
         $scope.loaded = false
-        root.scrollTo 0,0
 
         $scope.innerHeight = root.innerHeight
 
@@ -19,11 +18,15 @@ root = exports ? this
             $scope.$apply()
         
         Server.getPortfolioData().then ((portfolio) ->
-            $scope.works       = portfolio.works
-            $scope.experiments = portfolio.experiments
-            $scope.histories   = portfolio.histories
+            $scope.achievements = portfolio.achievements
+            $scope.badges       = portfolio.badges
+            
+            #dramatic pause
+            $timeout ->
+                root.scrollTo 0,0
+                $scope.loaded = true
+            , 1000
 
-            # $scope.loaded = true
         ), (error) ->
             console.error error
 

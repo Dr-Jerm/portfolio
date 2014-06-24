@@ -16,4 +16,17 @@ root = exports ? this
             getPortfolioData: getPortfolioData
         }
 
+    root.app.factory 'Loader', ($q) ->
+        promises = [];
+        Loader = {
+            loaded: false
+            push: (promise) ->
+                promises.push(promise)
+            register: () ->
+                $q.all(promises).then( (results) ->
+                    Loader.loaded = true
+                )
+        }
+        
+        Loader
 )()
