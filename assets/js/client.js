@@ -23,7 +23,7 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
       return $timeout(function() {
         root.scrollTo(0, 0);
         return $scope.loaded = true;
-      }, 1000);
+      }, 3000);
     }), function(error) {
       return console.error(error);
     });

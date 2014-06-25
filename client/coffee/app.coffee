@@ -25,7 +25,7 @@ root = exports ? this
             $timeout ->
                 root.scrollTo 0,0
                 $scope.loaded = true
-            , 1000
+            , 3000
 
         ), (error) ->
             console.error error
