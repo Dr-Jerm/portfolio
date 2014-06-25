@@ -76,6 +76,7 @@ body .background .mesh {
 body .body {
   position: relative;
   overflow-x: hidden;
+  padding-bottom: 3em;
 }
 body .body .introduction {
   background-color: #171b1e;
