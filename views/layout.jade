@@ -9,7 +9,6 @@ html(ng-app="myApp")
         link(rel="stylesheet" href="/css/style.css")
         link(rel="stylesheet" href="/css/vendor.css")
 
-        script(src='/js/vendor.min.js')
 
     body.fill(ng-controller='portfolioController')
         include loader
@@ -21,4 +20,5 @@ html(ng-app="myApp")
             block body
             //- include footer
 
+        script(src='/js/vendor.min.js')
         script(src='/js/client.js')

@@ -36,7 +36,7 @@ var root;
 root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
 (function() {
-  var animate, camera, clock, container, frame, geometry, init, mesh, onWindowResize, render, renderer, stats, time, timeStep, worldDepth, worldHalfDepth, worldHalfWidth, worldWidth;
+  var animate, camera, clock, container, frame, geometry, init, mesh, onWindowResize, render, renderer, time, timeStep, worldDepth, worldHalfDepth, worldHalfWidth, worldWidth;
   container = void 0;
   camera = void 0;
   root.scene = void 0;
@@ -47,7 +47,6 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
   time = void 0;
   frame = 0;
   timeStep = 1 / 60;
-  stats = void 0;
   init = function() {
     var i, material, vert, _i, _len, _ref;
     renderer = new THREE.WebGLRenderer({
@@ -64,8 +63,7 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
     camera.rotation.x = -(Math.PI / 3);
     root.scene = new THREE.Scene();
     root.scene.fog = new THREE.FogExp2(0xedf7f2, 0.004);
-    root.scene.add(new THREE.AmbientLight(0x666666));
-    geometry = new THREE.PlaneGeometry(1000, 1000, 20, 20);
+    geometry = new THREE.PlaneGeometry(2000, 2000, 40, 40);
     geometry.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI / 2));
     geometry.dynamic = true;
     _ref = geometry.vertices;
@@ -76,16 +74,11 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
     geometry.computeFaceNormals();
     geometry.computeVertexNormals();
     material = new THREE.MeshLambertMaterial({
-      color: 0xdddddd,
+      color: 0x000000,
       wireframe: true
     });
     mesh = new THREE.Mesh(geometry, material);
-    root.scene.add(mesh);
-    stats = new Stats();
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.right = '0px';
-    stats.domElement.style.top = '200px';
-    return container.appendChild(stats.domElement);
+    return root.scene.add(mesh);
   };
   onWindowResize = function() {
     camera.aspect = root.innerWidth / root.innerHeight;
@@ -94,8 +87,7 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
   };
   animate = function() {
     requestAnimationFrame(animate);
-    render();
-    return stats.update();
+    return render();
   };
   render = function() {
     var delta, i, vert, _i, _len, _ref;

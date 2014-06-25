@@ -17,8 +17,6 @@ root = exports ? this
     timeStep = 1/60
 
 
-    stats = undefined
-
     init = ->
         renderer = new THREE.WebGLRenderer({ antialias: true })
         renderer.setClearColor( 0xedf7f2, 1 )
@@ -39,9 +37,9 @@ root = exports ? this
         root.scene = new THREE.Scene()
         root.scene.fog = new THREE.FogExp2( 0xedf7f2, 0.004  )
 
-        root.scene.add( new THREE.AmbientLight( 0x666666 ) )
+        # root.scene.add( new THREE.AmbientLight( 0x666666 ) )
 
-        geometry = new THREE.PlaneGeometry( 1000, 1000, 20, 20 )
+        geometry = new THREE.PlaneGeometry( 2000, 2000, 40, 40 )
         geometry.applyMatrix( new THREE.Matrix4().makeRotationX( - Math.PI / 2 ) )
         geometry.dynamic = true
 
@@ -51,16 +49,10 @@ root = exports ? this
         geometry.computeFaceNormals()
         geometry.computeVertexNormals()
 
-        material = new THREE.MeshLambertMaterial( { color: 0xdddddd, wireframe: true } )
+        material = new THREE.MeshLambertMaterial( { color: 0x000000, wireframe: true } )
 
         mesh = new THREE.Mesh( geometry, material )
         root.scene.add( mesh )
-
-        stats = new Stats()
-        stats.domElement.style.position = 'absolute'
-        stats.domElement.style.right = '0px'
-        stats.domElement.style.top = '200px'
-        container.appendChild( stats.domElement )
 
      onWindowResize = -> 
         camera.aspect = root.innerWidth / root.innerHeight
@@ -71,8 +63,6 @@ root = exports ? this
     animate = ->
         requestAnimationFrame( animate )
         render()
-
-        stats.update()
 
     render = ->
 
