@@ -40,4 +40,4 @@ gulp.task('watch', function() {
   gulp.watch('client/vendorJs/*.js', ['vendorJs'])
 });
 
-gulp.task('default', ['scripts', 'vendorJs',  'stylus', 'vendorCss', 'watch']);
+gulp.task('default', ['scripts', 'vendorJs',  'stylus', 'vendorCss']);
