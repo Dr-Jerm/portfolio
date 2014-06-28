@@ -9,7 +9,7 @@ var gutil = require('gulp-util');
 gulp.task('scripts', function() {
   return gulp.src('client/coffee/*.coffee')
     .pipe(coffee({bare: true}).on('error', gutil.log))
-    .pipe(concat('client.js'))
+    .pipe(concat('client.min.js'))
     .pipe(gulp.dest('assets/js'));
 });
 
