@@ -10,14 +10,14 @@ root.app.directive 'blob', () ->
     templateUrl: 'partials/blob'
     link: (scope, element, attrs) ->
         console.log('blob ' +scope.details.title+' loaded!')
-        scope.hover = false
-
-        scope.enter = (event) ->
-            console.log event
-            hover = true
-        scope.leave = (event) ->
-            hover = false
-            console.log event
+        #scope.hover = false
+#
+        #scope.enter = (event) ->
+            #console.log event
+            #hover = true
+        #scope.leave = (event) ->
+            #hover = false
+            #console.log event
 
 root.app.directive 'badge', () ->
     restrict: 'A'

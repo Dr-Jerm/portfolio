@@ -1,10 +1,15 @@
-div.blob(ng-mouseover="hover = true" ng-mouseleave="hover = false")
-    div.thumbnail.tumbnail-hide-animation(ng-hide="hover" style='background-image:url({{details.imagePath}})')
-    div.title {{details.title}}
-    div.position(ng-if="details.position") {{details.position}}
-    div.date(ng-if="details.date") ({{details.date}})
-        //- img(src="{{details.imagePath}}")
-        //- div.caption {{details.imageCaption}}
-    div.summary {{details.summary}}
-    div.link(ng-if="details.link")
-        a(href="{{details.link.href}}" target="_blank") {{details.link.text}}
+figure.effect-hover
+    img(src="{{details.imagePath}}" alt="{{details.title}}")
+    figcaption
+        h2 {{details.title}}
+        p {{details.summary}}
+        a(ng-if="details.link" href="{{details.link.href}}" target="_blank") {{details.link.text}}
+    // div.thumbnail.tumbnail-hide-animation(ng-hide="hover" style='background-image:url({{details.imagePath}})')
+    // div.title {{details.title}}
+    // div.position(ng-if="details.position") {{details.position}}
+    // div.date(ng-if="details.date") ({{details.date}})
+    //     //- img(src="{{details.imagePath}}")
+    //     //- div.caption {{details.imageCaption}}
+    // div.summary {{details.summary}}
+    // div.link(ng-if="details.link")
+    //     a(href="{{details.link.href}}" target="_blank") {{details.link.text}}

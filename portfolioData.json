@@ -39,14 +39,6 @@
             "imagePath": "/images/snl.jpg",
             "summary": "Part of a video game research team. The primary objective was to detect agression based on forum postings with the goal of being able to mine public forums and be able to identify posters who would actually 'follow through' with their statements."
         }
-//        ,
-//        {
-//            "title": "University of New Mexico",
-//            "position": "Major: Computer Science, Minor: Film & Digital Media",
-//            "date": "2007 - 2013",
-//            "imagePath": "/images/unm.jpg",
-//            "summary": "Did my first two years in the School of Fine Arts before switching to Engineering. Focused primarily on film VFX and game development. Led and taught lab sections for Intro to Python and Intro to Game Development undergraduate courses."
-//        }
     ],
     "badges" : [
         {

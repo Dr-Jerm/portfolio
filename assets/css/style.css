@@ -125,51 +125,94 @@ body .body .section .list li {
   display: inline-flex;
   margin: 5px;
 }
-body .blob {
-  width: 365px;
-  height: 160px;
-  padding: 5px;
-  background: #fff;
-  background-color: #e3e3e3;
-  background-image: -webkit-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: -moz-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: -ms-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: -o-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
+body figure .effect-hover {
+  background: #18a367;
 }
-body .blob .title {
-  font-size: 150%;
+body figure .effect-hover img {
+  min-width: 100%;
+  height: -webkit-calc(100% + 40px);
+  height: calc(100% + 40px);
 }
-body .blob .date {
-  font-size: 80%;
-  color: #5e5e5e;
+body figure .effect-hover figcaption {
+  padding: 3em;
 }
-body .blob .position {
-  font-size: 80%;
-  color: #2b2b2b;
-}
-body .blob .thumbnail {
+body figure .effect-hover figcaption ::before,
+body figure .effect-hover figcaption ::after {
   position: absolute;
-  width: 365px;
-  height: 160px;
-  opacity: 1;
-}
-body .blob .thumbnail.tumbnail-hide-animation.ng-hide-add,
-body .blob .thumbnail.tumbnail-hide-animation.ng-hide-remove {
-  -webkit-transition: 0.3s linear all;
-  transition: 0.3s linear all;
-  display: block !important;
-  opacity: 1;
-}
-body .blob .thumbnail.tumbnail-hide-animation.ng-hide {
+  content: '';
   opacity: 0;
 }
-body .blob .summary {
-  padding: 5px;
-  font-size: 75%;
+body figure .effect-hover figcaption ::before {
+  top: 50px;
+  right: 30px;
+  bottom: 50px;
+  left: 30px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: scale(0, 1);
+  transform: scale(0, 1);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
 }
-body .blob .link a {
-  z-index: 1;
+body figure .effect-hover figcaption ::after {
+  top: 30px;
+  right: 50px;
+  bottom: 30px;
+  left: 50px;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  -webkit-transform: scale(1, 0);
+  transform: scale(1, 0);
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+body figure .effect-hover h2 {
+  padding-top: 26%;
+  -webkit-transition: -webkit-transform 0.35s;
+  transition: transform 0.35s;
+}
+body figure .effect-hover p {
+  padding: 0.5em 2em;
+  text-transform: none;
+opacity
+  -webkit-transform: translate3d(0, -10px, 0);
+  transform: translate3d(0, -10px, 0);
+}
+body figure .effect-hover img,
+body figure .effect-hover h2 {
+  -webkit-transform: translate3d(0, -30px, 0);
+  transform: translate3d(0, -30px, 0);
+}
+body figure .effect-hover img,
+body figure .effect-hover figcaption::before,
+body figure .effect-hover figcaption::after,
+body figure .effect-hover p {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+}
+body figure .effect-hover :hover img {
+  opacity: 0.7;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+body figure .effect-hover :hover figcaption::before,
+body figure .effect-hover :hover figcaption::after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+body figure .effect-hover :hover h2,
+body figure .effect-hover :hover p {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+body figure .effect-hover :hover figcaption::after,
+body figure .effect-hover :hover h2,
+body figure .effect-hover :hover p,
+body figure .effect-hover :hover img {
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
 }
 body .badge {
   width: 180px;
