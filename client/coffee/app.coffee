@@ -15,6 +15,7 @@ root = exports ? this
 
         root.addEventListener 'resize', ->
             $scope.innerHeight = root.innerHeight
+            $scope.innerWidth = root.innerWidth
             $scope.$apply()
         
         Server.getPortfolioData().then ((portfolio) ->

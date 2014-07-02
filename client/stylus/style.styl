@@ -62,6 +62,146 @@ a
   &:hover
     text-decoration none 
 
+.grid 
+  overflow hidden
+  margin 0
+  padding 3em 0 0 0
+  width 100%
+  list-style none
+  text-align center
+  
+  figure 
+    position relative
+    z-index 1
+    display inline-block
+    overflow hidden
+    margin -0.135em
+    width 33.333%
+    height 400px
+    background #3085a3
+    text-align center
+    cursor pointer
+    
+    img
+      position relative
+      display block
+      min-height 100%
+      opacity 0.8
+      
+    figcaption
+      color #fff
+      text-transform uppercase
+      font-size 1.25em
+      -webkit-backface-visibility hidden
+      backface-visibility hidden
+      
+      &::before, &::after
+        pointer-events none
+        
+    figcaption, a 
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      
+    a
+      z-index 1000
+      text-indent 200%
+      white-space nowrap
+      font-size 0
+      opacity 0
+      
+    h2 
+      word-spacing -0.15em
+      font-weight 300
+      
+      span 
+        font-weight 800
+    h2, p 
+      margin 0
+
+    p 
+      letter-spacing 1px
+      font-size 68.5%
+
+figure
+  &.effect-hover
+    img
+      min-width 100%
+      height -webkit-calc(100% + 40px)
+      height calc(100% + 40px)
+      
+    figcaption
+      
+      &::before, &::after
+        position absolute
+        content ''
+        opacity 0
+        
+      &::before
+        top 50px
+        right 30px
+        bottom 50px
+        left 30px
+        border-top 1px solid #fff
+        border-bottom 1px solid #fff
+        -webkit-transform scale(0,1)
+        transform scale(0,1)
+        -webkit-transform-origin 0 0
+        transform-origin 0 0
+
+      &::after
+        top 30px
+        right 50px
+        bottom 30px
+        left 50px
+        border-right 1px solid #fff
+        border-left 1px solid #fff
+        -webkit-transform scale(1,0)
+        transform scale(1,0)
+        -webkit-transform-origin 100% 0
+        transform-origin 100% 0
+        
+    h2
+      padding-top 26%
+      -webkit-transition -webkit-transform 0.35s
+      transition transform 0.35s
+      
+    p
+      padding 0.5em 4em
+      text-transform none
+      opacity 0
+      -webkit-transform translate3d(0, -10px, 0)
+      transform translate3d(0, -10px, 0)
+      
+    img, h2
+      -webkit-transform translate3d(0,-30px,0)
+      transform translate3d(0,-30px,0)
+      
+    img, figcaption::before, figcaption::after, p
+      -webkit-transition opacity 0.35s, -webkit-transform 0.35s
+      transition opacity 0.35s, transform 0.35s
+      
+    &:hover img
+      opacity 0.7
+      -webkit-transform translate3d(0,0,0)
+      transform translate3d(0,0,0)
+      
+    &:hover figcaption::before, &:hover figcaption::after
+      opacity 1
+      -webkit-transform scale(1)
+      transform scale(1)
+      
+    &:hover h2, &:hover p
+      opacity 1
+      -webkit-transform translate3d(0,0,0)
+      transform translate3d(0,0,0)
+      
+    &:hover figcaption::after, &:hover h2, &:hover p, &:hover img
+      -webkit-transition-delay 0.15s
+      transition-delay 0.15s
+
 body
   color textColor
   background-color backgroundColor
@@ -136,7 +276,6 @@ body
       text-align center
       margin-right auto
       margin-left auto
-      max-width 1160px
     
       .section-title
         font-size 2vw
@@ -145,7 +284,7 @@ body
         
         .icon
           font-size 2.5em
-      
+          
       .list
         list-style-type none
         margin 0
@@ -156,88 +295,7 @@ body
         li
           display inline-flex
           margin 5px
-
-  figure
-    .effect-hover
-      background #18a367
-      
-      img
-        min-width 100%
-        height -webkit-calc(100% + 40px)
-        height calc(100% + 40px)
-        
-      figcaption
-        padding 3em
-        
-        ::before, ::after
-          position absolute
-          content ''
-          opacity 0
           
-        ::before
-          top 50px
-          right 30px
-          bottom 50px
-          left 30px
-          border-top 1px solid #fff
-          border-bottom 1px solid #fff
-          -webkit-transform scale(0,1)
-          transform scale(0,1)
-          -webkit-transform-origin 0 0
-          transform-origin 0 0
-
-        ::after
-          top 30px
-          right 50px
-          bottom 30px
-          left 50px
-          border-right 1px solid #fff
-          border-left 1px solid #fff
-          -webkit-transform scale(1,0)
-          transform scale(1,0)
-          -webkit-transform-origin 100% 0
-          transform-origin 100% 0
-          
-      h2
-        padding-top 26%
-        -webkit-transition -webkit-transform 0.35s
-        transition transform 0.35s
-        
-      p
-        padding 0.5em 2em
-        text-transform none
-        opacity
-        -webkit-transform translate3d(0, -10px, 0)
-        transform translate3d(0, -10px, 0)
-        
-      img, h2
-        -webkit-transform translate3d(0,-30px,0)
-        transform translate3d(0,-30px,0)
-        
-      img, figcaption::before, figcaption::after, p
-        -webkit-transition opacity 0.35s, -webkit-transform 0.35s
-        transition opacity 0.35s, transform 0.35s
-        
-      :hover img
-        opacity 0.7
-        -webkit-transform translate3d(0,0,0)
-        transform translate3d(0,0,0)
-        
-      :hover figcaption::before, :hover figcaption::after
-        opacity 1
-        -webkit-transform scale(1)
-        transform scale(1)
-        
-      :hover h2, :hover p
-        opacity 1
-        -webkit-transform translate3d(0,0,0)
-        transform translate3d(0,0,0)
-        
-      :hover figcaption::after, :hover h2, :hover p, :hover img
-        -webkit-transition-delay 0.15s
-        transition-delay 0.15s
-          
-
   .badge
     width 180px
     height 160px
@@ -254,4 +312,4 @@ body
     position fixed
     bottom 0px
     color #dddddd
-  
+    
