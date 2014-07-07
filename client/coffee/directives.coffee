@@ -2,7 +2,7 @@ root = exports ? this
   
 ## would like to go back to transcluding the inner carousel at some point
 
-root.app.directive 'blob', () ->
+root.app.directive 'blob', ($timeout) ->
     restrict: 'E'
     scope: {
         details: '='
@@ -20,6 +20,21 @@ root.app.directive 'blob', () ->
                 return {"width": "50%"}
             return {"width": "33.33%"}
             
+        scope.hover = false
+        scope.link = false
+        
+        timer = null
+        
+        scope.$watch('hover', ->
+            if scope.hover 
+                timer = $timeout( -> 
+                    scope.link = true
+                , 100)
+            else
+                scope.link = false
+                if timer
+                    $timeout.cancel(timer))
+
         scope.tileCount = ->
             if root.innerWidth < 600
                 return 1
