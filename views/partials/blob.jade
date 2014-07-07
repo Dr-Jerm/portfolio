@@ -5,4 +5,4 @@ span
             h2 {{details.title}}
             p {{details.summary}}
             a(ng-if="details.link" href="{{details.link.href}}" target="_blank") {{details.link.text}}
-    figure(ng-if="tileCount() == 3 && !last")
+    figure(ng-if="tileCount() == 3 && !pHidden" style="background-color:transparent")

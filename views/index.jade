@@ -16,7 +16,7 @@ block body
             div.section-title
                 h2.text Stuff I've done
             div.grid    
-                blob(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1")
+                blob(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1" p-hidden="paddingHidden($index, achievements.length)")
         div.section
             div.section-title
                 h2.text Things I'm into

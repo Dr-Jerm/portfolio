@@ -46,6 +46,7 @@ a:hover {
   display: inline-block;
   overflow: hidden;
   margin: -0.135em 0 -0.135em 0;
+  background-color: #000;
   width: 33.333%;
   height: 400px;
   text-align: center;
@@ -54,7 +55,7 @@ a:hover {
   position: relative;
   display: block;
   min-height: 100%;
-  opacity: 0.8;
+  opacity: 1;
 }
 .grid figure figcaption {
   color: #fff;
@@ -158,7 +159,7 @@ figure.effect-hover p {
   transition: opacity 0.35s, transform 0.35s;
 }
 figure.effect-hover:hover img {
-  opacity: 0.7;
+  opacity: 0.4;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }

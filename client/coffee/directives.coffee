@@ -7,11 +7,12 @@ root.app.directive 'blob', () ->
     scope: {
         details: '='
         last: '='
+        pHidden: '='
     }
     replace: true
     templateUrl: 'partials/blob'
     link: (scope, element, attrs) ->
-        console.log('blob ' +scope.details.title+' loaded, last: '+scope.last)
+        console.log('blob ' +scope.details.title+' loaded, last: '+scope.last+' pHidden: '+scope.pHidden)
         scope.tileWidth = ->
             if root.innerWidth < 600
                 return {"width": "100%"}
@@ -31,6 +32,7 @@ root.app.directive 'blob', () ->
                 return {"font-size": "90%"}
             return {"font-size": "100%"}
             
+        
 
 root.app.directive 'badge', () ->
     restrict: 'A'
