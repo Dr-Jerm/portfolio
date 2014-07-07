@@ -89,7 +89,7 @@ root = exports ? this
 
     clock = new THREE.Clock()
 
-#    init()
-#    animate()
+    init()
+    animate()
  
 )()
