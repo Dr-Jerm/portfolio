@@ -36,7 +36,6 @@ a:hover {
 .grid {
   overflow: hidden;
   margin: 0;
-  padding: 3em 0 0 0;
   width: 100%;
   list-style: none;
   text-align: center;
@@ -46,12 +45,10 @@ a:hover {
   z-index: 1;
   display: inline-block;
   overflow: hidden;
-  margin: -0.135em;
+  margin: -0.135em 0 -0.135em 0;
   width: 33.333%;
   height: 400px;
-  background: #3085a3;
   text-align: center;
-  cursor: pointer;
 }
 .grid figure img {
   position: relative;
@@ -63,6 +60,7 @@ a:hover {
   color: #fff;
   text-transform: uppercase;
   font-size: 1.25em;
+  cursor: pointer;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -258,6 +256,9 @@ body .body .section {
 }
 body .body .section .section-title {
   font-size: 2vw;
+}
+body .body .section .section-title h2 {
+  background-color: rgba(0,0,0,0.1);
 }
 body .body .section .section-title .text,
 body .body .section .section-title .icon {

@@ -20,6 +20,7 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
     });
     return Server.getPortfolioData().then((function(portfolio) {
       $scope.achievements = portfolio.achievements;
+      $scope.achievementsEven = portfolio.achievements.length % 2 === 0;
       $scope.badges = portfolio.badges;
       return $timeout(function() {
         root.scrollTo(0, 0);
@@ -107,9 +108,7 @@ root = typeof exports !== "undefined" && exports !== null ? exports : this;
   worldDepth = 128;
   worldHalfWidth = worldWidth / 2;
   worldHalfDepth = worldDepth / 2;
-  clock = new THREE.Clock();
-  init();
-  return animate();
+  return clock = new THREE.Clock();
 })();
 
 var root;
@@ -120,19 +119,20 @@ root.app.directive('blob', function() {
   return {
     restrict: 'E',
     scope: {
-      details: '='
+      details: '=',
+      paddingVisible: '='
     },
     replace: true,
     templateUrl: 'partials/blob',
     link: function(scope, element, attrs) {
-      console.log('blob ' + scope.details.title + ' loaded!');
-      scope.tileCount = function() {
-        if (root.innerWidth < 500) {
+      console.log('blob ' + scope.details.title + ' loaded, paddingVisible: ' + scope.paddingVisible);
+      scope.tileWidth = function() {
+        if (root.innerWidth < 600) {
           return {
             "width": "100%"
           };
         }
-        if (root.innerWidth < 800) {
+        if (root.innerWidth < 1000) {
           return {
             "width": "50%"
           };
@@ -141,8 +141,17 @@ root.app.directive('blob', function() {
           "width": "33.33%"
         };
       };
+      scope.tileCount = function() {
+        if (root.innerWidth < 600) {
+          return 1;
+        }
+        if (root.innerWidth < 1000) {
+          return 2;
+        }
+        return 3;
+      };
       return scope.fontSize = function() {
-        if (root.innerWidth < 800) {
+        if (root.innerWidth < 1000) {
           return {
             "font-size": "90%"
           };

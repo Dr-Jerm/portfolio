@@ -12,6 +12,9 @@ root = exports ? this
             style = {}
             style[css] = $scope.innerHeight+'px'
             style
+        
+        $scope.paddingVisible = ->
+            debugger
 
         root.addEventListener 'resize', ->
             $scope.innerHeight = root.innerHeight
@@ -20,6 +23,7 @@ root = exports ? this
         
         Server.getPortfolioData().then ((portfolio) ->
             $scope.achievements = portfolio.achievements
+            $scope.achievementsEven = portfolio.achievements.length%2 == 0
             $scope.badges       = portfolio.badges
             
             #dramatic pause
