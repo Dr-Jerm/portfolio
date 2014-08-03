@@ -14,12 +14,12 @@ block body
     div.bin
         div.section
             div.section-title
-                h2.text Stuff I've done
+                h2.text CREATED
             div.grid    
                 blob(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1" p-hidden="paddingHidden($index, achievements.length)")
         div.section
             div.section-title
-                h2.text Things I'm into
+                h2.text LEARNED
                 //- span.icon.icon-gamepad
             ul.list.experiment
                 li(badge ng-repeat="badge in badges" details="badge")
