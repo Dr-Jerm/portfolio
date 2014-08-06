@@ -2,24 +2,39 @@ extends layout
 
 block body
   div.body
-    div.centered-container.introduction(ng-style="getInnerHeightStyle('height')")
+    div.centered-container.curtain.introduction(ng-style="getInnerHeightStyle('height')")
         div.centered
             div.greeting Hey, I'm 
                 span.name Jeremy Bernstein
             div.sub-title Fullstack and Game Developer
-            div.links
-                a.logo.icon-mail(href="mailto:dr.jerm.io@gmail.com" target="_blank")
-                a.logo.icon-github(href="https://github.com/Dr-Jerm" target="_blank")
-                a.logo.icon-linkedin(href="https://www.linkedin.com/pub/jeremy-bernstein/1a/b45/b64" target="_blank")
+
     div.bin
         div.section
             div.section-title
-                h2.text CREATED
+                h2.text CREATING
             div.grid    
                 blob(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1" p-hidden="paddingHidden($index, achievements.length)")
         div.section
             div.section-title
-                h2.text LEARNED
-                //- span.icon.icon-gamepad
+                h2.text LEARNING
             ul.list.experiment
                 li(badge ng-repeat="badge in badges" details="badge")
+                
+    div.centered-container.curtain.conclusion(ng-style="getInnerHeightStyle('height')")
+        div.centered
+            div.square
+                div.pic
+            div.summary
+                div.summary-title Reach out
+                div.summary-text
+                    p.
+                        I'm a 25 year old Developer currently residing in California. 
+                        Growing up in the remote reaches of rural New Mexico the web and gaming provided gateways to information and experiences that were otherwise out of reach to me.
+                        I keep myself busy by finding the coolest and most interesting tech and people to surround myself with.
+                        If you're working on something cool, maybe we can cross paths!
+                        <span class="right">Fair journeys<span>
+                        
+            div.links
+                a.logo.icon-mail(href="mailto:dr.jerm.io@gmail.com" target="_blank")
+                a.logo.icon-github(href="https://github.com/Dr-Jerm" target="_blank")
+                a.logo.icon-linkedin(href="https://www.linkedin.com/pub/jeremy-bernstein/1a/b45/b64" target="_blank")

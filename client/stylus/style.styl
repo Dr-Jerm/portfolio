@@ -250,32 +250,63 @@ body
   .body
     position relative
     overflow-x hidden
-    padding-bottom 3em
 
-    .introduction
+    .curtain
       background-color #171b1e
       color #fff
       z-index 1
       font-size 2em
-      // position fixed
-      .greeting
-        .name
+
+      &.introduction
+        .greeting .name
           font-weight bold
-      // .sub-title
-      .links
-        
-        display inline-block
-        margin-top 2em
-
-        .logo
+          
+      &.conclusion
+      
+        .square
           display inline-block
-          display: inline-block
-          color subAccentColor
-          font-size 1em
-          text-decoration initial
+          width 100px
+          height 100px
+          margin 25px
+          vendor('transform',  rotate(-45deg))
 
-          &:hover
-            color accentColor
+          overflow hidden
+        
+          .pic
+            background-image url(/images/webProfile.png)
+            width 150px
+            height 150px
+            margin -25px
+            vendor('transform',  rotate(45deg))
+            
+        .summary
+          //.summary-title
+          
+          .summary-text
+            color subAccentColor
+            font-size .5em
+            margin auto
+            width 100%
+            max-width 456px
+            text-align justify
+            
+            .right 
+              float right
+              font-weight 700
+      
+        .links
+          display inline-block
+          margin-top 2em
+  
+          .logo
+            color #fff
+            display inline-block
+            display: inline-block
+            font-size 1em
+            text-decoration initial
+  
+            &:hover
+              color accentColor
 
     .section
       text-align center
@@ -283,7 +314,7 @@ body
       margin-left auto
     
       .section-title
-        font-size 2vw
+        // font-size 2vw
         
         h2
           background-color rgba(0,0,0,0.1)
@@ -291,6 +322,10 @@ body
           font-weight bold
 
         .text
+          font-family 'Raleway', Arial, sans-serif
+          font-weight 800
+          font-size 4em
+          line-height 1.3
           
         .icon
           font-size 2.5em

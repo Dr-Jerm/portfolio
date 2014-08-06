@@ -35,7 +35,7 @@ root = exports ? this
         camera.rotation.x = -(Math.PI / 3)
 
         root.scene = new THREE.Scene()
-        root.scene.fog = new THREE.FogExp2( 0xedf7f2, 0.004  )
+        root.scene.fog = new THREE.FogExp2( 0xedf7f2, 0.003  )
 
         # root.scene.add( new THREE.AmbientLight( 0x666666 ) )
 
