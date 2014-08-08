@@ -12,15 +12,6 @@ root = exports ? this
             style = {}
             style[css] = $scope.innerHeight+'px'
             style
-        
-        # If the 
-        $scope.paddingHidden = (index, achievementsLength) ->
-            isLast = index == achievementsLength - 1
-            achievementsIsEven = achievementsLength % 2 == 0
-            isSecondFromLast = index == achievementsLength - 2
-            isThirdFromLast = index == achievementsLength - 3
-            
-            (isLast || (isSecondFromLast && achievementsIsEven) || (isThirdFromLast && achievementsIsEven))
 
         root.addEventListener 'resize', ->
             $scope.innerHeight = root.innerHeight

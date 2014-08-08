@@ -1,0 +1,16 @@
+.loading-curtain
+  position fixed!important
+  z-index 100
+
+  background-color backgroundColor
+  background-image url(/images/bg.png)
+  background-repeat repeat
+  background-position top lf
+
+  &.curtain-hide-animation.ng-hide-add, &.curtain-hide-animation.ng-hide-remove 
+    -webkit-transition 1.0s linear all
+    transition 1.0s linear all
+    display table!important
+    opacity 1
+  &.curtain-hide-animation.ng-hide 
+    opacity 0

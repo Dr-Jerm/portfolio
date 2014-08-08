@@ -12,14 +12,14 @@ html(ng-app="myApp")
 
 
     body.fill(ng-controller='portfolioController')
-        include loader
+        include ./features/loader/loader
 
         div.portfolio
-            include background
+            include ./features/background/background
 
             //- include header
             block body
             //- include footer
 
         script(src='/js/vendor.min.js')
-        script(src='/js/client.min.js')
+        script(src='/js/app.min.js')

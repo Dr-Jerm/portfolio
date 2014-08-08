@@ -20,10 +20,10 @@ var app = module.exports = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/app');
 app.set('view engine', 'jade');
 app.use(express.logger('dev'));
-app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, 'release')));
 
 // development only
 if (app.get('env') === 'development') {

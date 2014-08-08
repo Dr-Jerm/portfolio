@@ -13,7 +13,7 @@ block body
             div.section-title
                 h2.text CREATING
             div.grid    
-                blob(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1" p-hidden="paddingHidden($index, achievements.length)")
+                details(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1" p-hidden="paddingHidden($index, achievements.length)")
         div.section
             div.section-title
                 h2.text LEARNING
@@ -28,7 +28,7 @@ block body
                 div.summary-title Reach out
                 div.summary-text
                     p.
-                        I'm a 25 year old Developer currently residing in California. 
+                        I'm a 25 year old developer currently residing in California. 
                         Growing up in the remote reaches of rural New Mexico the web and gaming provided gateways to information and experiences that were otherwise out of reach to me.
                         I keep myself busy by finding the coolest and most interesting tech and people to surround myself with.
                         If you're working on something cool, maybe we can cross paths!
