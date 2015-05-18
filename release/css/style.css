@@ -42,7 +42,6 @@
 .details {
   display: inline-block;
   box-sizing: border-box;
-  padding: 5px;
   width: 33.333%;
 }
 .details figure {

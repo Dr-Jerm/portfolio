@@ -14,11 +14,6 @@ block body
                 h2.text CREATING
             div.grid    
                 details(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1" p-hidden="paddingHidden($index, achievements.length)")
-        div.section
-            div.section-title
-                h2.text LEARNING
-            ul.list.experiment
-                li(badge ng-repeat="badge in badges" details="badge")
                 
     div.centered-container.curtain.conclusion(ng-style="getInnerHeightStyle('height')")
         div.centered
