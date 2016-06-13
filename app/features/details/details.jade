@@ -1,7 +1,0 @@
-div.details(ng-style="tileWidth()")
-    figure.effect-hover(ng-mouseover="hover = true" ng-mouseleave="hover = false")
-        img(src="{{details.imagePath}}" alt="{{details.title}}")
-        figcaption
-            h2 {{details.title}}
-            p {{details.summary}}
-            a(ng-if="details.link && link" href="{{details.link.href}}" target="_blank") {{details.link.text}}

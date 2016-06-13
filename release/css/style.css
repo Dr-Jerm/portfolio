@@ -22,170 +22,6 @@
   background-repeat: repeat;
   background-position: top lf;
 }
-.badge {
-  width: 180px;
-  height: 160px;
-  padding: 5px;
-  background: #fff;
-  background-color: #e3e3e3;
-  background-image: -webkit-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: -moz-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: -ms-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: -o-linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-  background-image: linear-gradient(top, #e3e3e3 0%, #edf7f2 100%);
-}
-.badge .thumbnail {
-  position: relative;
-  width: 180px;
-  height: 160px;
-}
-.details {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 33.333%;
-}
-.details figure {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  overflow: hidden;
-  margin: -0.135em 0 -0.135em 0;
-  background-color: #000;
-  height: 400px;
-  text-align: center;
-  width: 100%;
-}
-.details figure img {
-  position: relative;
-  display: block;
-  min-height: 100%;
-  opacity: 1;
-}
-.details figure figcaption {
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 1.25em;
-  cursor: pointer;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-.details figure figcaption::before,
-.details figure figcaption::after {
-  pointer-events: none;
-}
-.details figure figcaption,
-.details figure a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.details figure a {
-  z-index: 1000;
-  text-indent: 200%;
-  white-space: nowrap;
-  font-size: 0;
-  opacity: 0;
-}
-.details figure h2 {
-  word-spacing: -0.15em;
-  font-weight: 300;
-}
-.details figure h2 span {
-  font-weight: 800;
-}
-.details figure h2,
-.details figure p {
-  margin: 0;
-}
-.details figure p {
-  letter-spacing: 1px;
-  font-size: 68.5%;
-}
-figure.effect-hover img {
-  min-width: 100%;
-  height: -webkit-calc(100% + 40px);
-  height: calc(100% + 40px);
-}
-figure.effect-hover figcaption::before,
-figure.effect-hover figcaption::after {
-  position: absolute;
-  content: '';
-  opacity: 0;
-}
-figure.effect-hover figcaption::before {
-  top: 50px;
-  right: 30px;
-  bottom: 50px;
-  left: 30px;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  -webkit-transform: scale(0, 1);
-  transform: scale(0, 1);
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-}
-figure.effect-hover figcaption::after {
-  top: 30px;
-  right: 50px;
-  bottom: 30px;
-  left: 50px;
-  border-right: 1px solid #fff;
-  border-left: 1px solid #fff;
-  -webkit-transform: scale(1, 0);
-  transform: scale(1, 0);
-  -webkit-transform-origin: 100% 0;
-  transform-origin: 100% 0;
-}
-figure.effect-hover h2 {
-  padding-top: 26%;
-  -webkit-transition: -webkit-transform 0.35s;
-  transition: transform 0.35s;
-}
-figure.effect-hover p {
-  padding: 0.5em 4em;
-  text-transform: none;
-  opacity: 0;
-  -webkit-transform: translate3d(0, -10px, 0);
-  transform: translate3d(0, -10px, 0);
-}
-figure.effect-hover img,
-figure.effect-hover h2 {
-  -webkit-transform: translate3d(0, -30px, 0);
-  transform: translate3d(0, -30px, 0);
-}
-figure.effect-hover img,
-figure.effect-hover figcaption::before,
-figure.effect-hover figcaption::after,
-figure.effect-hover p {
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-  transition: opacity 0.35s, transform 0.35s;
-}
-figure.effect-hover:hover img {
-  opacity: 0.4;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-figure.effect-hover:hover figcaption::before,
-figure.effect-hover:hover figcaption::after {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-figure.effect-hover:hover h2,
-figure.effect-hover:hover p {
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-figure.effect-hover:hover figcaption::after,
-figure.effect-hover:hover h2,
-figure.effect-hover:hover p,
-figure.effect-hover:hover img {
-  -webkit-transition-delay: 0.15s;
-  transition-delay: 0.15s;
-}
 .loading-curtain {
   position: fixed !important;
   z-index: 100;
@@ -203,6 +39,54 @@ figure.effect-hover:hover img {
 }
 .loading-curtain.curtain-hide-animation.ng-hide {
   opacity: 0;
+}
+.loading-curtain .logo {
+  opacity: 0.5;
+  animation: animationName 1s infinite;
+}
+@-moz-keyframes animationName {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes animationName {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes animationName {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes animationName {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .fill {
   position: absolute;
@@ -269,7 +153,6 @@ body .body .curtain.conclusion .square {
   overflow: hidden;
 }
 body .body .curtain.conclusion .square .pic {
-  background-image: url("/images/webProfile.png");
   width: 150px;
   height: 150px;
   margin: -25px;
@@ -277,6 +160,12 @@ body .body .curtain.conclusion .square .pic {
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+body .body .curtain.conclusion .square .pic.jeremy {
+  background-image: url("/images/webProfile.png");
+}
+body .body .curtain.conclusion .square .pic.shem {
+  background-image: url("/images/shem.jpg");
 }
 body .body .curtain.conclusion .summary .summary-text {
   color: #a3a3a3;
@@ -288,6 +177,9 @@ body .body .curtain.conclusion .summary .summary-text {
 }
 body .body .curtain.conclusion .summary .summary-text .right {
   float: right;
+  font-weight: 700;
+}
+body .body .curtain.conclusion .summary .summary-text .left {
   font-weight: 700;
 }
 body .body .curtain.conclusion .links {
@@ -333,4 +225,18 @@ body .body .section .list {
 body .body .section .list li {
   display: inline-flex;
   margin: 5px;
+}
+body .body .section .description {
+  display: inline-block;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  backface-visibility: hidden;
+  width: 100%;
+  margin-top: 5em;
+}
+body .body .section .description .description-text {
+  padding-left: 25%;
+  padding-right: 25%;
 }

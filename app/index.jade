@@ -4,32 +4,80 @@ block body
   div.body
     div.centered-container.curtain.introduction(ng-style="getInnerHeightStyle('height')")
         div.centered
-            div.greeting Hey, I'm 
-                span.name Jeremy Bernstein
-            div.sub-title Fullstack and Game Developer
+            div.greeting This is 
+                span.name DreamGate
+            div.sub-title Taking Over the (Virtual) World
 
     div.bin
         div.section
             div.section-title
-                h2.text CREATING
-            div.grid    
-                details(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1" p-hidden="paddingHidden($index, achievements.length)")
+                h2.text Snow Day
+            div.centered
+                iframe(width="560" height="315" src="https://www.youtube.com/embed/8iCn-KMhy8A" frameborder="0" allowfullscreen)
+                // details(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1" p-hidden="paddingHidden($index, achievements.length)")
+            div.description
+                p.description-text
+                    It snowed all night and school out is for the day. Put on your gloves, snow gear, and VR goggles to hit the street! In this multiplayer snowbrawler dig in and throw hard. 
+                    Customizable snow-gear, teams, power ups, and more! 
+                    
                 
     div.centered-container.curtain.conclusion(ng-style="getInnerHeightStyle('height')")
         div.centered
             div.square
-                div.pic
+                div.pic.shem
             div.summary
-                div.summary-title Reach out
+                div.summary-title Shem
                 div.summary-text
                     p.
-                        I'm a 25 year old developer currently residing in California. 
-                        Growing up in the remote reaches of rural New Mexico the web and gaming provided gateways to information and experiences that were otherwise out of reach to me.
-                        I keep myself busy by finding the coolest and most interesting tech and people to surround myself with.
-                        If you're working on something cool, maybe we can cross paths!
-                        <span class="right">Fair journeys<span>
+                        Shem grew up in New Mexico with way too many siblings and only one computer. 
+                        Forced to learn how to type at an early age with access to nothing more than QBasic as his word processor, he learned how to program text-based games, websites, and seizure-inducing graphics. 
+                        Fast-forward two decades and four years of working at Lucasfilm's child company Industrial Light and Magic, he broke off to form Dreamgate Media to focus on his passion for games and the emerging field of virtual reality. 
+                        When he isn't working on games, you can find him at game jams, on the road biking, or drawing and painting the beautiful San Francisco landscape.
+                    
+
+                    span.left Favorite games
+                    p.
+                        Civilization II, Starcraft, Braid, Portal
                         
-            div.links
-                a.logo.icon-mail(href="mailto:jeremy.rr.bernstein@gmail.com" target="_blank")
-                a.logo.icon-github(href="https://github.com/Dr-Jerm" target="_blank")
-                a.logo.icon-linkedin(href="https://www.linkedin.com/pub/jeremy-bernstein/1a/b45/b64" target="_blank")
+                    span.left Currently playing
+                    p.
+                        Destiny, Vanishing Realms, Grow Home
+                        
+                div.links
+                    a.logo.icon-mail(href="mailto:shemit@gmail.com" target="_blank")
+                    a.logo.icon-github(href="https://github.com/shemit" target="_blank")
+                    a.logo.icon-linkedin(href="https://www.linkedin.com/in/shem-nguyen-5a1b421a" target="_blank")
+        div.centered
+            div.square
+                div.pic.jeremy
+            div.summary
+                div.summary-title Jeremy
+                div.summary-text
+                    p.
+                        Jeremy grew up battling tumble weeds in the remote reaches of rural New Mexico. 
+                        The fictional worlds offered a chance to explore an infinute variety of adventure and intrigue 
+                        Naturally gaming and the internet provided gateways to experiences and information that were otherwise out of reach. 
+                        With a desire to build digital experiences Jeremy went off to school on a meandering path that took him through film, video game development, web development, and computer science. 
+                        Leveraging his web technology chops he set for sunny California to help build out and deploy the cutting edge PlayStation Now game streaming service. 
+                        Building internal tools and web technology for Telltale Games brought Jeremy to the bay area where DreamGate saw its beginnings. 
+                        
+                        
+                        
+                    span.left Favorite games
+                    p.
+                        Legend of Zelda: Ocarina of Time, Dota/2, The Last of Us, Super Smash Bros. (N64)
+                    span.left Currently playing
+                    p.
+                        Overwatch, Rocket Leauge, 
+                div.links
+                    a.logo.icon-mail(href="mailto:utilityjerm@gmail.com" target="_blank")
+                    a.logo.icon-github(href="https://github.com/Dr-Jerm" target="_blank")
+                    a.logo.icon-linkedin(href="https://www.linkedin.com/in/jeremy-bernstein-b64b451a" target="_blank")
+                        
+        
+    // div.centered-container.curtain.conclusion
+    //     div.centered      
+    //         div.links
+    //             a.logo.icon-mail(href="mailto:jeremy.rr.bernstein@gmail.com" target="_blank")
+    //             a.logo.icon-github(href="https://github.com/Dr-Jerm" target="_blank")
+    //             a.logo.icon-linkedin(href="https://www.linkedin.com/pub/jeremy-bernstein/1a/b45/b64" target="_blank")

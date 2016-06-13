@@ -49,7 +49,7 @@ root = exports ? this
         geometry.computeFaceNormals()
         geometry.computeVertexNormals()
 
-        material = new THREE.MeshLambertMaterial( { color: 0x000000, wireframe: true } )
+        material = new THREE.MeshLambertMaterial( { color: 0x000000} )
 
         mesh = new THREE.Mesh( geometry, material )
         root.scene.add( mesh )
@@ -68,10 +68,10 @@ root = exports ? this
 
         frame++
         delta = clock.getDelta()
-        time = clock.getElapsedTime() * 10
+        time = clock.getElapsedTime() * 8
 
         for vert, i in geometry.vertices 
-            vert.y = 35 * Math.sin( i / 5 + ( time + i ) / 7 )
+            vert.y = 75 * Math.sin( i / 3 + ( time + i ) / 12 )
         
         # geometry.computeFaceNormals()
         # geometry.computeVertexNormals()
