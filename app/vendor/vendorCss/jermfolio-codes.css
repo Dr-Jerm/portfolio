@@ -1,7 +1,8 @@
 
-.icon-gamepad:before { content: '\e800'; } /* '' */
-.icon-suitcase:before { content: '\e804'; } /* '' */
-.icon-rocket:before { content: '\e805'; } /* '' */
-.icon-github:before { content: '\e801'; } /* '' */
-.icon-mail:before { content: '\e803'; } /* '' */
-.icon-linkedin:before { content: '\e802'; } /* '' */
+.icon-mail:before { content: '\e800'; } /* '' */
+.icon-linkedin:before { content: '\e801'; } /* '' */
+.icon-github:before { content: '\e802'; } /* '' */
+.icon-youtube-squared:before { content: '\f166'; } /* '' */
+.icon-facebook-official:before { content: '\f230'; } /* '' */
+.icon-twitter-squared:before { content: '\f304'; } /* '' */
+.icon-tumblr:before { content: '\f315'; } /* '' */

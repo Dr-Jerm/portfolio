@@ -132,6 +132,20 @@ body .body {
   position: relative;
   overflow-x: hidden;
 }
+body .body .links {
+  display: inline-block;
+  margin-top: 2em;
+}
+body .body .links .logo {
+  color: #fff;
+  display: inline-block;
+  display: inline-block;
+  font-size: 1em;
+  text-decoration: initial;
+}
+body .body .links .logo:hover {
+  color: #7d7d7d;
+}
 body .body .curtain {
   background-color: #171b1e;
   color: #fff;
@@ -181,20 +195,6 @@ body .body .curtain.conclusion .summary .summary-text .right {
 }
 body .body .curtain.conclusion .summary .summary-text .left {
   font-weight: 700;
-}
-body .body .curtain.conclusion .links {
-  display: inline-block;
-  margin-top: 2em;
-}
-body .body .curtain.conclusion .links .logo {
-  color: #fff;
-  display: inline-block;
-  display: inline-block;
-  font-size: 1em;
-  text-decoration: initial;
-}
-body .body .curtain.conclusion .links .logo:hover {
-  color: #7d7d7d;
 }
 body .body .section {
   text-align: center;

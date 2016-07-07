@@ -7,10 +7,18 @@ root = exports ? this
         $scope.loaded = false
 
         $scope.innerHeight = root.innerHeight
+        $scope.innerWidth = root.innerWidth
+
+
 
         $scope.getInnerHeightStyle = (css) ->
             style = {}
             style[css] = $scope.innerHeight+'px'
+            style
+            
+        $scope.getInnerWidthStyle = (css) ->
+            style = {}
+            style[css] = $scope.innerWidth+'px'
             style
 
         root.addEventListener 'resize', ->

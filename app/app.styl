@@ -38,7 +38,7 @@ background-linear-gradient(startPoint, startColor, startInterval, endColor, endI
 
 @import 'features/background/*'
 @import 'features/loader/*'
-
+@import 'features/youtube/*'
 .fill
   position absolute
   top 0
@@ -83,6 +83,20 @@ body
   .body
     position relative
     overflow-x hidden
+
+    .links
+      display inline-block
+      margin-top 2em
+
+      .logo
+        color #fff
+        display inline-block
+        display: inline-block
+        font-size 1em
+        text-decoration initial
+
+        &:hover
+          color accentColor
 
     .curtain
       background-color #171b1e
@@ -132,20 +146,6 @@ body
               
             .left 
               font-weight 700
-      
-        .links
-          display inline-block
-          margin-top 2em
-  
-          .logo
-            color #fff
-            display inline-block
-            display: inline-block
-            font-size 1em
-            text-decoration initial
-  
-            &:hover
-              color accentColor
 
     .section
       text-align center

@@ -7,13 +7,21 @@ block body
             div.greeting This is 
                 span.name Breachgate
             div.sub-title Taking Over the (Virtual) World
+            div.links
+                a.logo.icon-mail(href="mailto:breachgate@gmail.com" target="_blank")
+                a.logo.icon-tumblr(href="http://breachgate.tumblr.com/" target="_blank")
+                a.logo.icon-facebook-official(href="https://www.facebook.com/breachgate/" target="_blank")
+                a.logo.icon-twitter-squared(href="https://twitter.com/breachgatemedia" target="_blank")
+                
+                    
 
     div.bin
         div.section
             div.section-title
                 h2.text Snow Day
             div.centered
-                iframe(width="560" height="315" src="https://www.youtube.com/embed/h1N_O-zqTPY" frameborder="0" allowfullscreen)
+                youtube(hash="h1N_O-zqTPY")
+                // iframe(width="560" height="315" src="https://www.youtube.com/embed/h1N_O-zqTPY" frameborder="0" allowfullscreen ng-style="getInnerWidthStyle('width')")
                 // <iframe width="560" height="315" src="https://www.youtube.com/embed/h1N_O-zqTPY" frameborder="0" allowfullscreen></iframe>
                 // details(ng-repeat="details in achievements" details="details" last="$index == achievements.length - 1" p-hidden="paddingHidden($index, achievements.length)")
             div.description
@@ -42,12 +50,13 @@ block body
                         
                     span.left Currently playing
                     p.
-                        Destiny, Vanishing Realms, Grow Home
+                        Destiny, Vanishing Realms, FTL
                         
                 div.links
                     a.logo.icon-mail(href="mailto:shemit@gmail.com" target="_blank")
                     a.logo.icon-github(href="https://github.com/shemit" target="_blank")
                     a.logo.icon-linkedin(href="https://www.linkedin.com/in/shem-nguyen-5a1b421a" target="_blank")
+    div.centered-container.curtain.conclusion(ng-style="getInnerHeightStyle('height')")
         div.centered
             div.square
                 div.pic.jeremy
@@ -66,10 +75,10 @@ block body
                         
                     span.left Favorite games
                     p.
-                        Legend of Zelda: Ocarina of Time, Dota/2, The Last of Us, Super Smash Bros. (N64)
+                        Legend of Zelda: Ocarina of Time, Dota2, The Last of Us, Super Smash Bros. (N64)
                     span.left Currently playing
                     p.
-                        Overwatch, Rocket Leauge, 
+                        Overwatch, Rocket Leauge, Inside
                 div.links
                     a.logo.icon-mail(href="mailto:utilityjerm@gmail.com" target="_blank")
                     a.logo.icon-github(href="https://github.com/Dr-Jerm" target="_blank")
